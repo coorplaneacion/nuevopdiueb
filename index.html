@@ -275,17 +275,21 @@
     border-bottom: 1px solid var(--border);
   }
   .uni-icon {
-    width: 56px; height: 56px;
-    border-radius: 14px;
-    display: flex;
+    min-width: 64px;
+    width: auto;
+    height: 56px;
+    padding: 0 14px;
+    border-radius: 16px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 900;
+    letter-spacing: 0.02em;
     color: #fff;
     flex-shrink: 0;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
   }
   .uni-title h2 {
     font-family: 'Playfair Display', serif;
@@ -383,7 +387,7 @@
   .quad-card.ext ul li::before,
   .quad-card.serv ul li::before { color: #64748b; }
   .strategic {
-    background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(16,185,129,0.05) 100%);
+    background: linear-gradient(135deg, rgba(0,95,107,0.05) 0%, rgba(248,250,252,0.95) 100%);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 24px;
@@ -470,15 +474,15 @@
   }
   .highlight-box p { font-size: 14px; color: var(--text); margin: 0; }
   .bn-merged-hero {
-    background: linear-gradient(135deg, rgba(0,95,107,0.08) 0%, rgba(37,99,235,0.05) 54%, rgba(217,119,6,0.07) 100%);
-    border-color: #b2d8dd;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 70%, #f9fafb 100%);
+    border-color: var(--border);
   }
   .bn-eyebrow {
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 2.4px;
     text-transform: uppercase;
-    color: #005F6B;
+    color: var(--accent);
     margin-bottom: 8px;
   }
   .bn-anchor-grid {
@@ -490,17 +494,18 @@
   .bn-anchor-card {
     display: block;
     text-decoration: none;
-    background: rgba(255,255,255,0.88);
-    border: 1px solid #b2d8dd;
+    background: #fff;
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 14px 16px;
     box-shadow: 0 8px 18px rgba(15,23,42,0.05);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
   }
   .bn-anchor-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(15,23,42,0.08);
-    border-color: #005F6B;
+    border-color: rgba(0,95,107,0.35);
+    background: rgba(0,95,107,0.03);
   }
   .bn-anchor-card strong {
     display: block;
@@ -520,8 +525,9 @@
     gap: 8px;
     padding: 5px 11px;
     border-radius: 999px;
-    background: rgba(0,95,107,0.10);
-    color: #005F6B;
+    background: rgba(0,95,107,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(0,95,107,0.14);
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 1.5px;
@@ -529,7 +535,7 @@
     margin-bottom: 12px;
   }
   .bn-merged-block {
-    border-top: 4px solid #005F6B;
+    border-top: 1px solid var(--border);
   }
   .bn-merged-block h3 {
     margin-bottom: 6px;
@@ -542,14 +548,14 @@
   .bn-subheading {
     font-size: 15px;
     font-weight: 900;
-    color: #005F6B;
+    color: var(--accent);
     margin: 18px 0 10px;
     text-transform: uppercase;
     letter-spacing: 0.9px;
   }
   .bn-intro-card {
-    background: #f8fbff;
-    border: 1px solid #d7dfeb;
+    background: #f8fafc;
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 18px 20px;
   }
@@ -672,9 +678,10 @@
   }
   .inner-tab:hover { color: var(--text); box-shadow: 0 6px 18px rgba(15,23,42,0.06); }
   .inner-tab.active {
-    background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(16,185,129,0.10));
-    color: var(--accent2);
-    border-color: rgba(37,99,235,0.28);
+    background: rgba(0,95,107,0.08);
+    color: var(--accent);
+    border-color: rgba(0,95,107,0.24);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.05);
   }
   .inner-view { display: none; }
   .inner-view.active { display: block; }
@@ -747,6 +754,190 @@
   .benchmark-index-scroll th { position: sticky; top: 0; z-index: 1; }
   .status-note { font-size: 12px; color: var(--muted); font-weight: 600; }
 
+  .method-tabs, .method-book-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 22px;
+    padding: 12px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .method-tab, .method-book-tab {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .method-tab:hover, .method-book-tab:hover { color: var(--text); box-shadow: 0 6px 18px rgba(15,23,42,0.06); }
+  .method-tab.active, .method-book-tab.active {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .method-view, .method-book-view { display: none; }
+  .method-view.active, .method-book-view.active { display: block; }
+  .method-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .method-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+  }
+  .method-card strong {
+    display: block;
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .phase-details {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin: 12px 0;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.035);
+  }
+  .phase-details summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 15px 18px;
+    font-weight: 900;
+    color: var(--text);
+    background: linear-gradient(90deg, rgba(0,95,107,0.08), rgba(15,118,110,0.04));
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .phase-details summary::-webkit-details-marker { display: none; }
+  .phase-details summary::after { content: '▾'; color: var(--accent); }
+  .phase-details:not([open]) summary::after { content: '▸'; }
+  .phase-body { padding: 18px; }
+  .compact-list { padding-left: 20px; margin: 10px 0; }
+  .compact-list li { margin-bottom: 6px; }
+  @media (max-width: 900px) { .method-summary-grid { grid-template-columns: 1fr; } }
+
+  .bn-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .bn-stat-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+  }
+  .bn-stat-card.warning {
+    background: #fffaf0;
+    border-color: #f3d7a2;
+  }
+  .bn-stat-number {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .bn-stat-number.warning { color: #b45309; }
+  .bn-stat-label {
+    font-size: 13px;
+    color: #3D5468;
+    margin-top: 6px;
+  }
+
+
+  /* Ajustes de respiración visual para el apartado 5: metodología */
+  .book-ref {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: 4px;
+  }
+  .method-book-tab {
+    white-space: normal;
+    line-height: 1.25;
+    max-width: 260px;
+  }
+  #panel-pdi-metodologias .method-tabs,
+  #panel-pdi-metodologias .method-book-tabs {
+    margin-bottom: 28px;
+  }
+  #panel-pdi-metodologias .method-book-tabs {
+    margin-top: 18px;
+  }
+  #panel-pdi-metodologias .method-view .global-panel {
+    margin-bottom: 24px;
+  }
+  #panel-pdi-metodologias .method-view .global-panel h4 {
+    margin: 22px 0 10px;
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: 0.2px;
+  }
+  #panel-pdi-metodologias .method-view .global-panel p + p {
+    margin-top: 10px;
+  }
+  #panel-pdi-metodologias .method-view > .pdi-table-wrap {
+    margin-top: 12px;
+    margin-bottom: 30px;
+  }
+  #panel-pdi-metodologias .method-view .pdi-table-wrap + .global-panel {
+    margin-top: 30px;
+  }
+  #panel-pdi-metodologias .method-view .global-panel + .pdi-table-wrap {
+    margin-top: -4px;
+  }
+  #panel-pdi-metodologias .method-summary-grid {
+    margin: 22px 0 30px;
+  }
+  #panel-pdi-metodologias .phase-details {
+    margin: 18px 0;
+  }
+  #panel-pdi-metodologias .phase-details summary {
+    padding: 18px 20px;
+    background: linear-gradient(90deg, rgba(0,95,107,0.08), rgba(100,116,139,0.04));
+  }
+  #panel-pdi-metodologias .phase-body {
+    padding: 20px 22px 22px;
+  }
+  #panel-pdi-metodologias .compact-list {
+    margin: 14px 0 4px;
+    padding-left: 22px;
+  }
+  #panel-pdi-metodologias .compact-list li {
+    margin-bottom: 8px;
+  }
+  #panel-pdi-metodologias .phase-body p + .pdi-table-wrap,
+  #panel-pdi-metodologias .phase-body ul + .pdi-table-wrap,
+  #panel-pdi-metodologias .phase-body .pdi-table-wrap + .pdi-table-wrap,
+  #panel-pdi-metodologias .phase-body .pdi-table-wrap + p {
+    margin-top: 18px;
+  }
+  #panel-pdi-metodologias .phase-details + .global-panel {
+    margin-top: 30px;
+  }
+  #panel-pdi-metodologias .method-book-view .global-panel {
+    margin-top: 18px;
+  }
+
 </style>
 </head>
 <body>
@@ -774,12 +965,10 @@
       <button class="uni-btn" onclick="showUni('pdi-tendencias', this)">2. Tendencias y drivers</button>
       <button class="uni-btn" onclick="showUni('pdi-brechas', this)">3. Brechas y oportunidades</button>
       <button class="uni-btn" onclick="showUni('pdi-benchmark', this)">4. Benchmark de PDIs</button>
-      <button class="uni-btn" onclick="showUni('pdi-buenas', this)">5. Buenas prácticas</button>
-      <button class="uni-btn" onclick="showUni('pdi-escenarios', this)">6. Escenarios de incertidumbre</button>
-      <button class="uni-btn" onclick="showUni('pdi-focos', this)">7. Focos estratégicos</button>
-      <button class="uni-btn" onclick="showUni('pdi-narrativa', this)">8. Narrativa estratégica</button>
-      <button class="uni-btn" onclick="showUni('pdi-conclusion', this)">9. Conclusión ejecutiva</button>
-      <button class="uni-btn" onclick="showUni('pdi-bibliografia', this)">10. Bibliografía y fundamentos</button>
+      <button class="uni-btn" onclick="showUni('pdi-metodologias', this)">5. Benchmark metodológico para PDIs</button>
+      <button class="uni-btn" onclick="showUni('pdi-otros', this)">6. Otros</button>
+      <button class="uni-btn" onclick="showUni('pdi-conclusion', this)">7. Conclusión ejecutiva</button>
+      <button class="uni-btn" onclick="showUni('pdi-bibliografia', this)">8. Bibliografía y fundamentos</button>
     </details>
 
 
@@ -792,7 +981,7 @@
 <div class="uni-panel active" id="panel-pdi-resumen">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">P1</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">1</div>
     <div class="uni-title">
       <h2>1. Resumen estratégico y mapa de documentos</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
@@ -844,7 +1033,7 @@
 <div class="uni-panel" id="panel-pdi-tendencias">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">T</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">2</div>
     <div class="uni-title">
       <h2>2. Tendencias y drivers de cambio para el nuevo PDI</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
@@ -869,7 +1058,7 @@
 <div class="uni-panel" id="panel-pdi-brechas">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">B</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3</div>
     <div class="uni-title">
       <h2>3. Brechas y oportunidades para la Universidad El Bosque</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
@@ -895,7 +1084,7 @@
 <div class="uni-panel" id="panel-pdi-benchmark">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">4</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4</div>
     <div class="uni-title">
       <h2>4. Benchmark de PDIs</h2>
       <p>Lectura comparativa de planes de desarrollo institucional nacionales, latinoamericanos e internacionales</p>
@@ -934,96 +1123,96 @@
       <div class="benchmark-count-grid">
         <div class="benchmark-count-card"><strong>27</strong><span>registros nacionales</span></div>
         <div class="benchmark-count-card"><strong>23</strong><span>registros Latam</span></div>
-        <div class="benchmark-count-card"><strong>54</strong><span>documentos internacionales reportados</span></div>
+        <div class="benchmark-count-card"><strong>54</strong><span>registros internacionales</span></div>
       </div>
       <div class="benchmark-index-scroll">
         <table class="pdi-table">
-          <thead><tr><th>Bloque</th><th>Universidad / institución</th><th>País / referencia</th><th>Horizonte</th><th>Estado de cobertura</th></tr></thead>
+          <thead><tr><th>Bloque</th><th>Universidad / institución</th><th>País / referencia</th><th>Horizonte</th></tr></thead>
           <tbody>
-            <tr><td><strong>Nacional</strong></td><td>Universidad de los Andes</td><td>Colombia</td><td>2026–2030</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Pontificia Universidad Javeriana</td><td>Colombia</td><td>2025–2030</td><td class="status-note">Cubierto · 3 documentos</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad del Rosario</td><td>Colombia</td><td>2026</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad EAN</td><td>Colombia</td><td>2025</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Externado</td><td>Colombia</td><td>2026</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>F.U. Juan N. Corpas</td><td>Colombia</td><td>2022–2027</td><td class="status-note">Cubierto · 2 documentos</td></tr>
-<tr><td><strong>Nacional</strong></td><td>UDCA</td><td>Colombia</td><td>2024–2028</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>UNIAGRARIA</td><td>Colombia</td><td>2023–2033</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Santiago de Cali</td><td>Colombia</td><td>2025</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Santo Tomás</td><td>Colombia</td><td>2024</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad San Buenaventura</td><td>Colombia</td><td>2020–2029</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Sergio Arboleda</td><td>Colombia</td><td>2025</td><td class="status-note">PEI cubierto</td></tr>
-<tr><td><strong>Nacional</strong></td><td>No identificado claramente</td><td>Colombia</td><td>2020</td><td class="status-note">Limitación: nombre de archivo no especifica institución</td></tr>
-<tr><td><strong>Nacional</strong></td><td>No identificado claramente</td><td>Colombia</td><td>2022–2026</td><td class="status-note">Limitación: nombre de archivo no especifica institución</td></tr>
-<tr><td><strong>Nacional</strong></td><td>UNIMINUTO</td><td>Colombia</td><td>2023–2030</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>F.U. San Martín</td><td>Colombia</td><td>2022–2026</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>CUN</td><td>Colombia</td><td>2023–2027</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Arizona State University</td><td>EE. UU.</td><td>2025</td><td class="status-note">Alerta: ubicado en carpeta Nacional, excluido del benchmark nacional</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad de La Sabana</td><td>Colombia</td><td>2026</td><td class="status-note">Leído · archivo corresponde a PEI</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Areandina</td><td>Colombia</td><td>2024–2026</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Simón Bolívar</td><td>Colombia</td><td>2023–2027</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Cooperativa de Colombia</td><td>Colombia</td><td>2026–2030</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad de Santander (UDES)</td><td>Colombia</td><td>2024–2028</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Nacional</strong></td><td>Universidad Pontificia Bolivariana (UPB)</td><td>Colombia</td><td>2017–2025</td><td class="status-note">Leído · plan vencido</td></tr>
-<tr><td><strong>Latam</strong></td><td>CETYS Universidad</td><td>México</td><td>2036</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Iberoamericana</td><td>México</td><td>2023–2027</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Tecnológico de Monterrey</td><td>México</td><td>2030</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica de Chile</td><td>Chile</td><td>2020–2025</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica del Perú</td><td>Perú</td><td>2023–2027</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>PUC-Rio</td><td>Brasil</td><td>2023–2027</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidade Presbiteriana Mackenzie</td><td>Brasil</td><td>2025–2029</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Rafael Landívar</td><td>Guatemala</td><td>2022–2030</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Católica del Uruguay</td><td>Uruguay</td><td>2025–2030</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad del Valle de Guatemala</td><td>Guatemala</td><td>2025–2029</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Latam</strong></td><td>PUCRS</td><td>Brasil</td><td>2023–2027</td><td class="status-note">Alerta: archivo rotulado como INTEC corresponde a PUCRS</td></tr>
-<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica Argentina</td><td>Argentina</td><td>2025–2028</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica del Ecuador</td><td>Ecuador</td><td>2021–2026</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica Madre y Maestra</td><td>Rep. Dominicana</td><td>2023–2028</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Anáhuac</td><td>México</td><td>2025–2027</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Católica de Córdoba</td><td>Argentina</td><td>2021–2026</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Cristóbal Colón</td><td>México</td><td>2024–2028</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad de Las Américas</td><td>Ecuador</td><td>2025–2030</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad de las Américas Puebla</td><td>México</td><td>2026–2030</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad de Lima</td><td>Perú</td><td>2025–2030</td><td class="status-note">Limitación crítica: PDF solo imagen</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Peruana Cayetano Heredia</td><td>Perú</td><td>2022–2026</td><td class="status-note">Leído en este análisis</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad San Francisco de Quito</td><td>Ecuador</td><td>2019–2024</td><td class="status-note">Identificado, no extraído · plan vencido</td></tr>
-<tr><td><strong>Latam</strong></td><td>Universidad Tecnológica de Panamá</td><td>Panamá</td><td>2028–2030</td><td class="status-note">Identificado, no extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Warwick</td><td>Reino Unido</td><td>2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Toronto</td><td>Canadá</td><td>2025</td><td class="status-note">Identificado</td></tr>
-<tr><td><strong>Internacional</strong></td><td>King's College London · Dept. Nutritional Sciences</td><td>Reino Unido</td><td>2026–2028</td><td class="status-note">Leído · plan departamental</td></tr>
-<tr><td><strong>Internacional</strong></td><td>ETH Zürich o University of Zürich</td><td>Suiza</td><td>2022–2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>London School of Economics</td><td>Reino Unido</td><td>2020</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Quinnipiac University</td><td>EE. UU.</td><td>2019–2025</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>San Diego State University</td><td>EE. UU.</td><td>2024</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Alberta</td><td>Canadá</td><td>2025</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Genoa</td><td>Italia</td><td>2022</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Columbia University</td><td>EE. UU.</td><td>2027</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>LMU München</td><td>Alemania</td><td>2023</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Geneva</td><td>Suiza</td><td>2024</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Harvard University</td><td>EE. UU.</td><td>AY2026</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Fribourg</td><td>Suiza</td><td>2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Bern</td><td>Suiza</td><td>2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Basel</td><td>Suiza</td><td>2022–2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>London School of Economics · sostenibilidad</td><td>Reino Unido</td><td>2024</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Toronto · sostenibilidad</td><td>Canadá</td><td>2024–2025</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Royal Dick School · University of Edinburgh</td><td>Reino Unido</td><td>2025–2030</td><td class="status-note">No extraído · escuela</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Notre Dame Australia</td><td>Australia</td><td>2022</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Virginia</td><td>EE. UU.</td><td>2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Trinity College Dublin</td><td>Irlanda</td><td>2025–2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Universidades alemanas · Exzellenzstrategie</td><td>Alemania</td><td>2025</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Université de Montréal</td><td>Canadá</td><td>2024–2029</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Edinburgh</td><td>Reino Unido</td><td>2025–2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Manchester</td><td>Reino Unido</td><td>2020</td><td class="status-note">Cubierto</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Calgary</td><td>Canadá</td><td>2026</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Humboldt University · biblioteca</td><td>Alemania</td><td>2025</td><td class="status-note">Limitación: unidad, no institucional</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Vanderbilt Medical Center</td><td>EE. UU.</td><td>2025</td><td class="status-note">Limitación: centro médico</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Vanderbilt School of Engineering</td><td>EE. UU.</td><td>2025</td><td class="status-note">Limitación: escuela</td></tr>
-<tr><td><strong>Internacional</strong></td><td>UBN</td><td>—</td><td>—</td><td class="status-note">No identificada claramente</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Ruhr-Universität Bochum</td><td>Alemania</td><td>2022–2027</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of the West of England Bristol</td><td>Reino Unido</td><td>2030</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Lausanne</td><td>Suiza</td><td>2021–2026</td><td class="status-note">No extraído</td></tr>
-<tr><td><strong>Internacional</strong></td><td>University of Tübingen</td><td>Alemania</td><td>2025–2026</td><td class="status-note">Factsheet, no PDI completo</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Harvard Business School · IT</td><td>EE. UU.</td><td>FY25</td><td class="status-note">Limitación: plan de IT</td></tr>
-<tr><td><strong>Internacional</strong></td><td>Otros duplicados o variantes ya identificados</td><td>Varios</td><td>—</td><td class="status-note">17 documentos adicionales agrupados</td></tr>
+            <tr><td><strong>Nacional</strong></td><td>Universidad de los Andes</td><td>Colombia</td><td>2026–2030</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Pontificia Universidad Javeriana</td><td>Colombia</td><td>2025–2030</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad del Rosario</td><td>Colombia</td><td>2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad EAN</td><td>Colombia</td><td>2025</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Externado</td><td>Colombia</td><td>2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>F.U. Juan N. Corpas</td><td>Colombia</td><td>2022–2027</td></tr>
+<tr><td><strong>Nacional</strong></td><td>UDCA</td><td>Colombia</td><td>2024–2028</td></tr>
+<tr><td><strong>Nacional</strong></td><td>UNIAGRARIA</td><td>Colombia</td><td>2023–2033</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Santiago de Cali</td><td>Colombia</td><td>2025</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Santo Tomás</td><td>Colombia</td><td>2024</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad San Buenaventura</td><td>Colombia</td><td>2020–2029</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Sergio Arboleda</td><td>Colombia</td><td>2025</td></tr>
+<tr><td><strong>Nacional</strong></td><td>No identificado claramente</td><td>Colombia</td><td>2020</td></tr>
+<tr><td><strong>Nacional</strong></td><td>No identificado claramente</td><td>Colombia</td><td>2022–2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>UNIMINUTO</td><td>Colombia</td><td>2023–2030</td></tr>
+<tr><td><strong>Nacional</strong></td><td>F.U. San Martín</td><td>Colombia</td><td>2022–2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>CUN</td><td>Colombia</td><td>2023–2027</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Arizona State University</td><td>EE. UU.</td><td>2025</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad de La Sabana</td><td>Colombia</td><td>2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Areandina</td><td>Colombia</td><td>2024–2026</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Simón Bolívar</td><td>Colombia</td><td>2023–2027</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Cooperativa de Colombia</td><td>Colombia</td><td>2026–2030</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad de Santander (UDES)</td><td>Colombia</td><td>2024–2028</td></tr>
+<tr><td><strong>Nacional</strong></td><td>Universidad Pontificia Bolivariana (UPB)</td><td>Colombia</td><td>2017–2025</td></tr>
+<tr><td><strong>Latam</strong></td><td>CETYS Universidad</td><td>México</td><td>2036</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Iberoamericana</td><td>México</td><td>2023–2027</td></tr>
+<tr><td><strong>Latam</strong></td><td>Tecnológico de Monterrey</td><td>México</td><td>2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica de Chile</td><td>Chile</td><td>2020–2025</td></tr>
+<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica del Perú</td><td>Perú</td><td>2023–2027</td></tr>
+<tr><td><strong>Latam</strong></td><td>PUC-Rio</td><td>Brasil</td><td>2023–2027</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidade Presbiteriana Mackenzie</td><td>Brasil</td><td>2025–2029</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Rafael Landívar</td><td>Guatemala</td><td>2022–2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Católica del Uruguay</td><td>Uruguay</td><td>2025–2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad del Valle de Guatemala</td><td>Guatemala</td><td>2025–2029</td></tr>
+<tr><td><strong>Latam</strong></td><td>PUCRS</td><td>Brasil</td><td>2023–2027</td></tr>
+<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica Argentina</td><td>Argentina</td><td>2025–2028</td></tr>
+<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica del Ecuador</td><td>Ecuador</td><td>2021–2026</td></tr>
+<tr><td><strong>Latam</strong></td><td>Pontificia Universidad Católica Madre y Maestra</td><td>Rep. Dominicana</td><td>2023–2028</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Anáhuac</td><td>México</td><td>2025–2027</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Católica de Córdoba</td><td>Argentina</td><td>2021–2026</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Cristóbal Colón</td><td>México</td><td>2024–2028</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad de Las Américas</td><td>Ecuador</td><td>2025–2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad de las Américas Puebla</td><td>México</td><td>2026–2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad de Lima</td><td>Perú</td><td>2025–2030</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Peruana Cayetano Heredia</td><td>Perú</td><td>2022–2026</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad San Francisco de Quito</td><td>Ecuador</td><td>2019–2024</td></tr>
+<tr><td><strong>Latam</strong></td><td>Universidad Tecnológica de Panamá</td><td>Panamá</td><td>2028–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Warwick</td><td>Reino Unido</td><td>2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Toronto</td><td>Canadá</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>King's College London · Dept. Nutritional Sciences</td><td>Reino Unido</td><td>2026–2028</td></tr>
+<tr><td><strong>Internacional</strong></td><td>ETH Zürich o University of Zürich</td><td>Suiza</td><td>2022–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>London School of Economics</td><td>Reino Unido</td><td>2020</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Quinnipiac University</td><td>EE. UU.</td><td>2019–2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>San Diego State University</td><td>EE. UU.</td><td>2024</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Alberta</td><td>Canadá</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Genoa</td><td>Italia</td><td>2022</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Columbia University</td><td>EE. UU.</td><td>2027</td></tr>
+<tr><td><strong>Internacional</strong></td><td>LMU München</td><td>Alemania</td><td>2023</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Geneva</td><td>Suiza</td><td>2024</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Harvard University</td><td>EE. UU.</td><td>AY2026</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Fribourg</td><td>Suiza</td><td>2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Bern</td><td>Suiza</td><td>2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Basel</td><td>Suiza</td><td>2022–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>London School of Economics · sostenibilidad</td><td>Reino Unido</td><td>2024</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Toronto · sostenibilidad</td><td>Canadá</td><td>2024–2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Royal Dick School · University of Edinburgh</td><td>Reino Unido</td><td>2025–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Notre Dame Australia</td><td>Australia</td><td>2022</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Virginia</td><td>EE. UU.</td><td>2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Trinity College Dublin</td><td>Irlanda</td><td>2025–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Universidades alemanas · Exzellenzstrategie</td><td>Alemania</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Université de Montréal</td><td>Canadá</td><td>2024–2029</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Edinburgh</td><td>Reino Unido</td><td>2025–2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Manchester</td><td>Reino Unido</td><td>2020</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Calgary</td><td>Canadá</td><td>2026</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Humboldt University · biblioteca</td><td>Alemania</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Vanderbilt Medical Center</td><td>EE. UU.</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Vanderbilt School of Engineering</td><td>EE. UU.</td><td>2025</td></tr>
+<tr><td><strong>Internacional</strong></td><td>UBN</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Ruhr-Universität Bochum</td><td>Alemania</td><td>2022–2027</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of the West of England Bristol</td><td>Reino Unido</td><td>2030</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Lausanne</td><td>Suiza</td><td>2021–2026</td></tr>
+<tr><td><strong>Internacional</strong></td><td>University of Tübingen</td><td>Alemania</td><td>2025–2026</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Harvard Business School · IT</td><td>EE. UU.</td><td>FY25</td></tr>
+<tr><td><strong>Internacional</strong></td><td>Otros duplicados o variantes ya identificados</td><td>Varios</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
@@ -1034,7 +1223,7 @@
 
   <div class="benchmark-view" id="benchmark-nacional">
     <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#0f766e)">N</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.2</div>
     <div class="uni-title">
       <h2>4.2 Benchmark nacional</h2>
       <p>Lectura comparativa de referentes nacionales para orientar el nuevo PDI</p>
@@ -1068,22 +1257,22 @@
     <p>Se leyeron directamente los 26 archivos PDF disponibles. Dos de ellos contienen Proyectos Educativos Institucionales (PEI) sin metas cuantificables —La Sabana y Sergio Arboleda—, por lo que se consignan como referentes de identidad, no de planeación ejecutable. Dos planes están vencidos y no se encontró renovación en la carpeta —UPB (2017–2025) y Universidad Piloto (2020–2024)—; se incluyen con esa limitación explícita. Los 22 planes vigentes restantes sí son comparables metodológicamente.</p>
     <p>El análisis está organizado en tres preguntas estratégicas que responden al mandato del PDCM 2025–2027 de la UEB: alinear las apuestas institucionales con el entorno, fortalecer la metodología de planeación y preparar el terreno para el PDI hacia los 50 años.</p>
     
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px;">
-      <div style="background:#E6F3F5;border-radius:10px;padding:20px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:#005F6B;">26</div>
-        <div style="font-size:13px;color:#3D5468;margin-top:4px;">documentos leídos directamente</div>
+    <div class="bn-stat-grid">
+      <div class="bn-stat-card">
+        <div class="bn-stat-number">26</div>
+        <div class="bn-stat-label">documentos leídos directamente</div>
       </div>
-      <div style="background:#E6F3F5;border-radius:10px;padding:20px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:#005F6B;">22</div>
-        <div style="font-size:13px;color:#3D5468;margin-top:4px;">planes vigentes y comparables</div>
+      <div class="bn-stat-card">
+        <div class="bn-stat-number">22</div>
+        <div class="bn-stat-label">planes vigentes y comparables</div>
       </div>
-      <div style="background:#E6F3F5;border-radius:10px;padding:20px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:#005F6B;">2</div>
-        <div style="font-size:13px;color:#3D5468;margin-top:4px;">instituciones con solo PEI (sin PDI ejecutable)</div>
+      <div class="bn-stat-card">
+        <div class="bn-stat-number">2</div>
+        <div class="bn-stat-label">instituciones con solo PEI (sin PDI ejecutable)</div>
       </div>
-      <div style="background:#fff3cd;border-radius:10px;padding:20px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:#C05621;">2</div>
-        <div style="font-size:13px;color:#3D5468;margin-top:4px;">planes vencidos sin renovación en carpeta</div>
+      <div class="bn-stat-card warning">
+        <div class="bn-stat-number warning">2</div>
+        <div class="bn-stat-label">planes vencidos sin renovación en carpeta</div>
       </div>
     </div>
   </div>
@@ -1267,31 +1456,170 @@
   </div>
   </div>
 
+
   <div class="benchmark-view" id="benchmark-latam">
     <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">L</div>
-    <div class="uni-title">
-      <h2>4.3 Referentes latinoamericanos</h2>
-      <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
-      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
+      <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.3</div>
+      <div class="uni-title">
+        <h2>4.3 Benchmark LATAM</h2>
+        <p>Lectura comparativa de referentes latinoamericanos para orientar el nuevo PDI</p>
+        <div class="badges">
+          <span class="badge" style="background:rgba(0,95,107,0.10);color:var(--accent)">Lectura LATAM</span>
+          <span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">23 documentos</span>
+          <span class="badge" style="background:rgba(100,116,139,0.12);color:#475569">Abril 2026</span>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <div class="global-panel bn-merged-hero">
+      <div class="bn-eyebrow">4.3 · Benchmark LATAM</div>
+      <h3>Benchmark latinoamericano para calibrar la ambición del nuevo PDI</h3>
+      <p>Esta pestaña integra el análisis directo de 23 documentos latinoamericanos, organizado con la misma lógica del benchmark nacional: alcance del corpus, lectura de apuestas estratégicas, metodologías de planeación, horizonte temporal y síntesis de implicaciones para la Universidad El Bosque.</p>
+      <div class="bn-anchor-grid">
+        <a class="bn-anchor-card" href="#latam-intro" onclick="document.getElementById('latam-intro').scrollIntoView({behavior:'smooth',block:'start'});return false;"><strong>Introducción</strong><span>Alcance, diversidad del corpus y lectura ejecutiva.</span></a>
+        <a class="bn-anchor-card" href="#latam-que" onclick="document.getElementById('latam-que').scrollIntoView({behavior:'smooth',block:'start'});return false;"><strong>¿Qué están planeando?</strong><span>Apuestas diferenciadoras, modelos educativos y ecosistemas.</span></a>
+        <a class="bn-anchor-card" href="#latam-como" onclick="document.getElementById('latam-como').scrollIntoView({behavior:'smooth',block:'start'});return false;"><strong>¿Cómo están planeando?</strong><span>Participación, modelo educativo y sofisticación metodológica.</span></a>
+        <a class="bn-anchor-card" href="#latam-horizonte" onclick="document.getElementById('latam-horizonte').scrollIntoView({behavior:'smooth',block:'start'});return false;"><strong>¿En qué horizonte?</strong><span>Planes quinquenales, doble horizonte y oportunidad 50 años.</span></a>
+        <a class="bn-anchor-card" href="#latam-sintesis" onclick="document.getElementById('latam-sintesis').scrollIntoView({behavior:'smooth',block:'start'});return false;"><strong>Síntesis</strong><span>Cuatro hallazgos clave para la UEB.</span></a>
+      </div>
+    </div>
 
-  <div class="global-panel">
-    
-<div class="pdi-table-wrap">
-  <table class="pdi-table">
-    <thead><tr><th>Universidad</th><th>País</th><th>Tipo</th><th>Horizonte</th><th>Grandes apuestas</th><th>Elemento innovador</th><th>Lección para la UEB</th></tr></thead>
-    <tbody><tr><td>CETYS Universidad</td><td>México</td><td>Privada</td><td>2036</td><td>Experiencia transformadora, cultura de innovación, impacto significativo, trascendencia nacional y global.</td><td>Modelo multiexperiencial, microcredenciales, smart/data-driven campus, eficiencia terminal &gt;=80%.</td><td>Modelo útil para pensar el PDI como experiencia, datos, internacionalización y permanencia.</td></tr><tr><td>Tecnológico de Monterrey</td><td>México</td><td>Privada</td><td>2030</td><td>Liderazgo, emprendimiento, innovación educativa, investigación aplicada, internacionalización.</td><td>Modelo institucional altamente orientado a experiencia y ecosistema.</td><td>La diferenciación exige portafolio de innovación y alianzas robustas.</td></tr><tr><td>Universidad Iberoamericana</td><td>México</td><td>Privada jesuita</td><td>2023-2027</td><td>Reconciliación, justicia, docencia, investigación, incidencia y vinculación.</td><td>Planeación desde discernimiento, sentido e interpretación de signos de los tiempos.</td><td>La estrategia puede ser rigurosa sin perder identidad humanista.</td></tr><tr><td>Pontificia Universidad Católica de Chile</td><td>Chile</td><td>Privada / alta reputación</td><td>2020-2025</td><td>Calidad, investigación, internacionalización, sostenibilidad, comunidad.</td><td>Gestión estratégica con énfasis en excelencia y responsabilidad pública.</td><td>Combinar alta exigencia académica con contribución social.</td></tr><tr><td>Pontificia Universidad Católica del Perú</td><td>Perú</td><td>Privada</td><td>2023-2027</td><td>Formación, investigación, gestión, responsabilidad social, internacionalización.</td><td>Articulación de misión con transformación social.</td><td>Fortalecer pertinencia social e incidencia pública.</td></tr><tr><td>PUC-Rio</td><td>Brasil</td><td>Privada / católica</td><td>2023-2027</td><td>Investigación, innovación, formación, sostenibilidad, gestión y compromiso social.</td><td>Plan amplio con mirada de ecosistema y excelencia académica.</td><td>Útil para balancear investigación, formación y sostenibilidad.</td></tr><tr><td>Universidade Presbiteriana Mackenzie</td><td>Brasil</td><td>Privada</td><td>2025-2029</td><td>Identidad, excelencia, innovación, expansión, sostenibilidad, internacionalización.</td><td>Plan con fuerte integración de identidad y gestión institucional.</td><td>La identidad puede usarse como eje de posicionamiento y coherencia interna.</td></tr><tr><td>Universidad Rafael Landívar</td><td>Guatemala</td><td>Privada jesuita</td><td>2022-2030</td><td>Identidad, transformación social, formación integral, investigación, territorio.</td><td>Horizonte amplio con compromiso social y territorial.</td><td>La UEB puede fortalecer presencia territorial y solución de problemas país.</td></tr><tr><td>Universidad Católica del Uruguay</td><td>Uruguay</td><td>Privada</td><td>2025-2030</td><td>Excelencia académica, impacto, internacionalización, sostenibilidad.</td><td>Foco temporal 2030 con claridad de prioridades.</td><td>Una agenda 2035/2036 puede ayudar a mirar más allá de ciclos de acreditación.</td></tr><tr><td>Universidad del Valle de Guatemala</td><td>Guatemala</td><td>Privada</td><td>2025-2029</td><td>Ciencia, tecnología, innovación, desarrollo sostenible.</td><td>Vinculación con desarrollo científico y productivo.</td><td>Oportunidad para diseñar alianzas de investigación aplicada.</td></tr></tbody>
-  </table>
-</div>
-  </div>
+    <div class="global-panel bn-merged-block" id="latam-intro">
+      <div class="bn-section-label">Introducción</div>
+      <h3>Introducción</h3>
+      <div class="bn-intro-card">
+        <p>Este análisis es el resultado de la lectura directa y sistemática de los 23 documentos institucionales disponibles en la carpeta LATAM, cotejados con el Plan de Desarrollo, Consolidación y Mejoramiento (PDCM) 2025–2027 de la Universidad El Bosque. Cada institución fue leída en su fuente original en PDF. Cuando el archivo no permitía extracción de texto (caso U. de Lima), se documenta explícitamente como limitación técnica.</p><p>El corpus LATAM es significativamente más diverso que el nacional: abarca 10 países, 4 modelos educativos dominantes (jesuita, Liberal Arts, técnico-científico y laico pluralista), horizontes que van de 3 a 12 años, y niveles de sofisticación metodológica que oscilan entre el ejercicio sinodal participativo (UCA Argentina) y el BSC con cuatro perspectivas (UPCH Perú). Esta diversidad es un activo analítico: permite identificar prácticas que van más allá del entorno colombiano y que la Universidad El Bosque puede incorporar selectivamente.</p><p>El análisis está estructurado en torno a las tres preguntas estratégicas del PDCM: qué están planeando, cómo lo están planeando y en qué horizonte temporal. Cada sección incluye un análisis ejecutivo y una tabla desplegable con el detalle por institución. Al final, una síntesis identifica los patrones de mayor relevancia para el proceso de construcción del próximo PDI de los 50 años de la UEB.</p>
+      </div>
+      <div class="highlight-box" style="margin:22px 0;">
+        <p><strong>Lectura ejecutiva para directivos:</strong> Lo que el corpus LATAM revela no es solo qué hacen las otras universidades privadas de la región, sino qué conjunto de capacidades, identidades y apuestas están construyendo las instituciones con más trayectoria. La diferencia entre las que avanzan y las que se consolidan está en la claridad de su propuesta de valor, en la robustez de su proceso y en la honestidad con que conectan la estrategia con la capacidad real de ejecución. La UEB tiene una ventaja que pocas tienen en Colombia: ya tiene un PDCM en ejecución con 15 proyectos articulados, visión 2037 declarada y proceso hacia el PDI de los 50 años en 2027. El corpus LATAM ayuda a calibrar la ambición de ese proceso.</p>
+      </div>
+      <h4 class="bn-subheading" style="margin-top:26px;">Sobre el corpus</h4>
+      <p>Se leyeron directamente los 23 archivos PDF de la carpeta. Un archivo tiene limitación técnica crítica: la U. de Lima (PDF de imagen sin texto extraíble). Un plan está vencido: U. San Francisco de Quito (2019–2024), que se incluye por referencia histórica. Los 21 planes restantes son vigentes y metodológicamente comparables.</p>
+      <div class="bn-stat-grid"><div class="bn-stat-card">
+        <div class="bn-stat-number">23</div>
+        <div class="bn-stat-label">documentos leídos directamente</div>
+      </div><div class="bn-stat-card">
+        <div class="bn-stat-number">21</div>
+        <div class="bn-stat-label">planes vigentes y comparables</div>
+      </div><div class="bn-stat-card">
+        <div class="bn-stat-number">10</div>
+        <div class="bn-stat-label">países representados</div>
+      </div><div class="bn-stat-card warning">
+        <div class="bn-stat-number warning">1</div>
+        <div class="bn-stat-label">plan vencido sin renovación en carpeta</div>
+      </div></div>
+    </div>
+
+    <div class="global-panel bn-merged-block" id="latam-que">
+      <div class="bn-section-label">Pregunta 1</div>
+      <h3>¿Qué están planeando?</h3>
+      <p class="bn-section-subtitle">Grandes apuestas, modelos diferenciales y lecciones regionales para la UEB.</p>
+      <h4 class="bn-subheading">Lectura estratégica</h4>
+      <p>La convergencia temática en el corpus LATAM es más rica que en el nacional, precisamente porque hay más variedad institucional. Todos los planes abordan calidad, investigación, internacionalización y gestión — ese es el piso mínimo. Pero lo que distingue a las instituciones más sólidas del corpus LATAM es que cada una tiene una apuesta diferenciadora que da coherencia a todo: CETYS tiene el campus multiexperiencial inteligente; el Tec tiene el Tec21; la Ibero tiene el eje de Reconciliación y Justicia; la UDLAP tiene el Liberal Arts y el tronco común; la UPCH tiene el foco de salud con BSC riguroso; la PUCRS tiene el ecosistema Tech Hub.</p><p>Esa apuesta diferenciadora no es cosmética. Es la que le da al plan su identidad comunicable, su razón de ser y su capacidad de priorizar. Las instituciones sin apuesta diferenciadora producen planes genéricos — correctos pero indistinguibles. Las que sí la tienen producen planes que movilicen comunidades, atraen aliados y justifican decisiones difíciles.</p><p>Tres temas emergen con fuerza en el corpus LATAM que van más allá de lo que aparece en el corpus nacional: (1) el modelo educativo propio como eje estratégico (Tec21, Liberal Arts, multiexperiencial, BSC); (2) el ecosistema de innovación como activo financiero y reputacional (PUCRS, Tec, CETYS); y (3) la responsabilidad cívica y la justicia como ejes, no como programas de extensión (Ibero, UCC Córdoba, Landívar). Estos tres temas conectan directamente con las apuestas del PDCM 2025-2027 de la UEB.</p>
+      <div class="highlight-box" style="margin:20px 0;">
+        <p><strong>Implicación directa para la UEB:</strong> El PDCM tiene el Proyecto 2 (Ecosistema de aprendizaje) y el Proyecto 7 (Ecosistema de CTeI). El corpus LATAM muestra que esos dos proyectos son las piezas más estratégicas del portafolio: si se consolidan bien, pueden convertirse en el equivalente del Tec21 o del Porto Alegre Tech Hub para la UEB. La pregunta no es si hacerlos, sino con qué nivel de ambición y con qué modelo educativo propio los respalda. El BPSyC puede ser ese modelo — si se convierte en un sistema pedagógico verificable, no solo en un marco filosófico.</p>
+      </div>
+      <details class="sidebar-subgroup" style="margin-top:24px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;">
+      <summary style="padding:14px 18px;background:#f8fafc;cursor:pointer;font-weight:700;color:var(--accent);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+        <span>▾ &nbsp; Tabla maestra: Grandes apuestas por institución (clic para expandir)</span>
+        <span style="font-size:12px;color:#64748b;font-weight:600;text-align:right;">23 universidades · Lectura directa de PDFs · Carpeta 3. Latam · Abril 2026</span>
+      </summary>
+      <div class="pdi-table-wrap" style="margin:0;border-radius:0;">
+        <table class="pdi-table">
+          <thead><tr><th>Universidad</th><th>País</th><th>Tipo</th><th>Horizonte</th><th>¿Qué están planeando? Grandes apuestas y ejes</th><th>Elemento diferenciador</th><th>Lección clave para la UEB</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CETYS Universidad</strong></td><td>México</td><td>Privada / jesuita-inspirada</td><td>Plan 2036</td><td>4 pilares: Experiencia transformadora; Cultura de innovación; Impacto significativo; Trascendencia nacional y global. Smart campus, microcredenciales, modelo multiexperiencial.</td><td>Horizonte 2036 — el más largo del corpus LATAM. &#x27;Multiexperiencial&#x27; como modelo formativo: el estudiante acumula experiencias, no solo créditos. Data-driven campus explícito.</td><td>La UEB tiene visión 2037. El modelo de CETYS muestra cómo hacerla concreta: campus inteligente, datos, experiencia estudiantil como eje. Conecta directamente con los Proyectos 14 y 15 del PDCM.</td></tr><tr><td><strong>U. Iberoamericana (Ibero)</strong></td><td>México</td><td>Privada jesuita / alta reputación</td><td>2023–2027</td><td>6 ejes: Reconciliación (énfasis social jesuita); Justicia estructural; Docencia transformadora; Investigación con impacto; Incidencia pública; Vinculación con comunidades.</td><td>Único plan del corpus que pone &#x27;Reconciliación&#x27; y &#x27;Justicia&#x27; como ejes estratégicos principales. No es discurso: tiene proyectos y metas de incidencia social verificables.</td><td>La UEB tiene el enfoque BPSyC. La Ibero muestra cómo convertir un valor filosófico en eje estratégico con proyectos y metas concretas. Aplicable al Proyecto 12 (Ciudadanos El Bosque).</td></tr><tr><td><strong>Tec de Monterrey</strong></td><td>México</td><td>Privada / alta reputación / escala global</td><td>Visión 2030</td><td>Apuestas: liderazgo transformador, emprendimiento, innovación educativa (modelo Tec21), investigación aplicada, internacionalización, campus conectados. Tec21: aprendizaje basado en retos y proyectos.</td><td>Modelo Tec21 como innovación pedagógica explícita con metas de implementación. A estas escala (67.000 estudiantes), logra personalización por retos y proyectos. Marca &#x27;Tec&#x27; posicionada globalmente.</td><td>El PDCM tiene el Proyecto 1 (Oferta académica) y el Proyecto 2 (Ecosistema de aprendizaje). El Tec21 es la referencia regional más completa de cómo materializar esas apuestas con metas medibles.</td></tr><tr><td><strong>U. Anáhuac</strong></td><td>México</td><td>Privada / inspiración cristiana / multicampus</td><td>2025–2027</td><td>4 líneas: (1) Excelencia académica de innovación; (2) Identidad Anáhuac y formación integral; (3) Vinculación estratégica para la proyección social; (4) Desarrollo y calidad institucional.</td><td>Plan trienal con metas muy específicas por año. Identidad institucional como línea estratégica, no como preámbulo. Vinculación con redes ILCE y Legión de Cristo como ventaja diferencial.</td><td>La UEB puede estructurar sus proyectos del PDCM con metas anuales igual de específicas. La identidad BPSyC como línea, no como contexto. El trienio es el mismo horizonte que el PDCM.</td></tr><tr><td><strong>PUC Argentina (UCA)</strong></td><td>Argentina</td><td>Privada / católica / multicampus (BA + Mendoza)</td><td>2025–2028</td><td>4 vicerrectorados como estructura estratégica: Formación Integral (pastoral y desarrollo docente); Investigación (política científica con impacto social); Extensión y compromiso social (4 pilares: vinculación, RSU, profesional, disciplinar); Asuntos Económicos y Gestión.</td><td>Plan nace de un proceso sinodal (&#x27;Camino Sinodal de la UCA&#x27;) con metodología de transformación universitaria participativa. Identidad eclesial como punto de partida explícito y no disculpado.</td><td>La UEB construye su PDCM desde su identidad BPSyC. La UCA muestra cómo una universidad con identidad fuerte puede hacerla el punto de partida sin que eso limite su pertinencia académica y social.</td></tr><tr><td><strong>PUC Chile</strong></td><td>Chile</td><td>Privada / alta reputación / investigación</td><td>2020–2025</td><td>5 compromisos estratégicos: calidad e innovación educativa; investigación de frontera; vinculación con el medio y responsabilidad pública; internacionalización; sustentabilidad, inclusión y comunidad.</td><td>La PUC Chile combina alta reputación con agenda de inclusión explícita. Sustentabilidad como compromiso verificable (campus carbono neutro). Ranking regional consistente (top 5 Latam).</td><td>La UEB tiene acreditación de alta calidad. La PUC Chile muestra que calidad + inclusión + sostenibilidad pueden coexistir y reforzarse. El Proyecto 13 del PDCM (Bienestar) y el Proyecto 6 (CTeI) conectan directamente.</td></tr><tr><td><strong>PUCE Ecuador (MAGIS)</strong></td><td>Ecuador</td><td>Privada / jesuita / multicampus (7 sedes)</td><td>MAGIS 2021–2026</td><td>7+ objetivos estratégicos: democratizar el acceso a la educación superior; acompañar integralmente a los estudiantes; renovar la oferta académica; reforzar relaciones con alumni; revigorizar capacidades del cuerpo docente; realizar investigación pertinente (dominios institucionales); vinculación social. Transversales: internacionalización y certificación de calidad.</td><td>El plan lleva nombre propio &#x27;MAGIS&#x27; (jesuita: &#x27;más&#x27;). Organizado en tres preguntas: ¿Qué vamos a hacer? ¿Cómo? ¿Cómo sabemos si lo hacemos bien? Marco muy comunicable para una institución con 7 sedes.</td><td>El PDCM de la UEB tiene 15 proyectos. El MAGIS muestra cómo organizarlos alrededor de preguntas estratégicas simples que guíen a toda la comunidad. El nombre del plan como contrato de identidad.</td></tr><tr><td><strong>PUCP (Pontificia U. Católica del Perú)</strong></td><td>Perú</td><td>Privada / alta reputación / autónoma</td><td>2023–2027</td><td>5 ejes: formación integral; investigación, creación e innovación; responsabilidad social; internacionalización; gestión institucional. Énfasis en autonomía universitaria como valor estratégico.</td><td>La PUCP es la universidad más autónoma del corpus: no depende de ninguna orden religiosa desde 2011. Esa autonomía la convierte en un actor con apuestas más directamente políticas y sociales.</td><td>La UEB tiene autonomía académica. El modelo PUCP muestra que esa autonomía puede convertirse en apuesta estratégica de incidencia pública, especialmente relevante para el Proyecto 8 del PDCM (articulación con actores).</td></tr><tr><td><strong>PUCMM (Madre y Maestra)</strong></td><td>Rep. Dominicana</td><td>Privada / católica / alta reputación RD</td><td>2023–2028</td><td>4 ejes + 4 transversales. Ejes: Formación Transformadora e Integral; Investigación e Innovación para el Mundo; Vinculación con Impacto en el País y la Región; Gestión Institucional de Excelencia. Transversales: Identidad Católica, Transformación Digital, Aseguramiento de la Calidad, Sustentabilidad.</td><td>Mapa estratégico visual muy comunicable. Transversales separados de ejes — estructura metodológica ordenada. &#x27;Liderazgo que trasciende&#x27; como narrativa movilizadora del plan.</td><td>El PDCM tiene ejes y transversales implícitos. La PUCMM muestra cómo formalizarlos por separado en el documento para mayor claridad. La narrativa &#x27;liderazgo que trasciende&#x27; es análoga a lo que la UEB puede construir con su identidad BPSyC.</td></tr><tr><td><strong>PUC-Rio</strong></td><td>Brasil</td><td>Privada / alta reputación / investigación</td><td>2023–2027</td><td>Ejes: investigación e innovación; formación integral; gestión institucional; sostenibilidad; compromiso social. Foco en posicionamiento latinoamericano e internacional.</td><td>Proceso participativo con 200+ líderes en workshops y 12 planes por escuela/facultad. PMO activa con seguimiento por unidad. Alta producción científica en salud y tecnología.</td><td>El PDCM tiene Proyectos 6 y 7 (CTeI). La PUC-Rio muestra que la investigación con impacto requiere estructura organizacional (grupos, misiones, financiamiento externo) además de voluntad institucional.</td></tr><tr><td><strong>PUCRS (PUC Rio Grande do Sul)</strong></td><td>Brasil</td><td>Privada / jesuita / escuela tecnológica</td><td>2023–2027</td><td>Directores estratégicos: nueva universidad para nueva sociedad; innovación con impacto; formación continuada; nuevos modelos organizacionales; percursos formativos flexibles; redes y alianzas; experiencias digitales.</td><td>PUCRS Opera &#x27;Porto Alegre Tech Hub&#x27; — ecosistema de innovación propio con startups y empresas. Campus digital real, no aspiracional. Microcredenciales y formación continua como líneas con metas.</td><td>El PDCM tiene el Proyecto 14 (Campus Digital). La PUCRS muestra cómo ese campus puede generar un ecosistema de innovación con valor económico propio — relevante para la sostenibilidad financiera de la UEB.</td></tr><tr><td><strong>U. Católica de Córdoba (UCC)</strong></td><td>Argentina</td><td>Privada / jesuita / identidad ignaciana fuerte</td><td>2021–2026</td><td>5 orientaciones estratégicas: Identidad (misión e identidad jesuita, cuidado de la casa común); Educativo (calidad, innovación curricular, internacionalización, competencias); Cognoscitivo (investigación, transferencia, impacto social); Social (justicia, experiencias de servicio, comunidades vulneradas); Organizacional (sustentabilidad económica, infraestructura, visibilidad).</td><td>El plan parte del paradigma Ledesma-Kolvenbach (jesuita): utilidad, humanidad, justicia, fe. No es un plan genérico — tiene un fundamento filosófico que lo diferencia. &#x27;Casa común&#x27; como eje ambiental.</td><td>La UEB tiene el enfoque BPSyC. La UCC Córdoba muestra cómo convertir una tradición filosófica en estructura estratégica verificable. La &#x27;casa común&#x27; aplicada a las ciencias de la salud y la vida es un campo donde la UEB podría liderar.</td></tr><tr><td><strong>UCU (U. Católica del Uruguay)</strong></td><td>Uruguay</td><td>Privada / jesuita / pequeña / alta calidad</td><td>2025–2030</td><td>4 ejes: excelencia académica; impacto en el país y la región; internacionalización activa; sostenibilidad institucional. Visión: ser referente de educación católica jesuita en el Cono Sur.</td><td>Institución pequeña con clara visión de nicho. No compite en escala sino en calidad y red jesuita. Internacionalización activa como ventaja diferencial para una institución de Uruguay.</td><td>La UEB no necesita ser grande para ser referente. La UCU muestra que el foco (salud y calidad de vida + BPSyC) puede construir una posición de liderazgo regional si se sostiene con calidad y redes.</td></tr><tr><td><strong>U. Cristóbal Colón (UCC Veracruz)</strong></td><td>México</td><td>Privada / escolapia / Veracruz</td><td>2024–2028</td><td>5 ejes + 27 líneas de desarrollo: (1) Gestión Institucional; (2) Desarrollo Académico e Investigación (docencia, perfil UCC, programas innovadores, investigación con impacto social, posgrados internacionales); (3) Vinculación (con comunidad civil, empresarial, gubernamental, redes internacionales); (4) Bienestar de la Comunidad Universitaria; (5) Infraestructura y tecnologías emergentes.</td><td>Proceso metodológico riguroso: evaluación del plan anterior + webinarios temáticos + consejo de gobierno + encuestas + validación. 27 líneas de desarrollo específicas dan profundidad operativa.</td><td>El PDCM tiene 15 proyectos con líneas de acción. La UCC Veracruz muestra cómo estructurar 27 líneas de desarrollo específicas sin perder claridad. El proceso de evaluación del plan anterior es replicable para el PDCM.</td></tr><tr><td><strong>UDLA Ecuador (U. de Las Américas)</strong></td><td>Ecuador</td><td>Privada / gran escala</td><td>2025–2030</td><td>6 pilares: (1) Excelencia e Innovación Académica; (2) Tecnología y Transformación Digital; (3) Internacionalización; (4) [Bienestar / Comunidad]; (5) Sostenibilidad y Vinculación con la Sociedad; (6) Investigación, Transferencia y Divulgación. Transversales: liderazgo, innovación, sostenibilidad, internacionalización.</td><td>Arquitectura centrada en acción con FODA Transformacional. Alineación explícita con Plan Nacional de Desarrollo de Ecuador 2024-2025 y con ODS. Sostenibilidad integrada en todos los pilares.</td><td>El PDCM puede ganar en alineación explícita con el contexto nacional e internacional (ODS, CNA, MEN). La UDLA muestra cómo formalizar esa alineación sin que sea solo decorativa.</td></tr><tr><td><strong>UDLAP (U. de las Américas Puebla)</strong></td><td>México</td><td>Privada / Liberal Arts / humanista</td><td>2026–2030</td><td>7 ejes articulados: Filosofía Institucional; Modelo Educativo UDLAP (Liberal Arts, tronco común, interdisciplinariedad); Bienestar Estudiantil y Entorno de Aprendizaje; Investigación, Vinculación y Responsabilidad Cívica; Transformación Digital; Sostenibilidad Institucional; Cultura Organizacional y Capital Humano; Nuevos Mercados y Expansión Institucional.</td><td>Modelo Liberal Arts como diferenciador explícito en México. Tronco común como &#x27;eje articulador&#x27; del modelo educativo. Responsabilidad cívica como dimensión propia de la investigación.</td><td>El PDCM tiene el Proyecto 4 (Competencias globales). La UDLAP muestra cómo un modelo educativo diferenciado puede ser ventaja competitiva. La UEB tiene el enfoque BPSyC como equivalente al Liberal Arts: un sello formativo propio.</td></tr><tr><td><strong>U. de Lima</strong></td><td>Perú</td><td>Privada / laica / empresarial</td><td>2025–2030</td><td>LIMITACIÓN TÉCNICA: El PDF es imagen sin capa de texto (escaneado). No fue posible extraer información del contenido. Se identifica institución y horizonte por metadatos del archivo.</td><td>No determinable con la información disponible.</td><td>Se recomienda obtener una versión digital con texto seleccionable para completar el análisis.</td></tr><tr><td><strong>UVG (U. del Valle de Guatemala)</strong></td><td>Guatemala</td><td>Privada / laica / ciencias y tecnología</td><td>2025–2029</td><td>Ejes: ciencia, tecnología, innovación y desarrollo sostenible. Formación en STEM con proyección regional centroamericana. Investigación aplicada a problemas locales.</td><td>Única universidad guatemalteca del corpus con foco explícito en STEM y desarrollo sostenible. Tamaño pequeño con enfoque muy definido que genera reconocimiento regional.</td><td>La UEB tiene facultades de Ingeniería y Ciencias. La UVG muestra cómo un foco sectorial bien definido puede construir posicionamiento regional sin necesitar gran escala.</td></tr><tr><td><strong>UPCH (U. Peruana Cayetano Heredia)</strong></td><td>Perú</td><td>Privada / salud / alta reputación médica</td><td>2022–2026</td><td>BSC con 4 perspectivas y 13 objetivos estratégicos: Resultados (formación de calidad, investigación, vinculación social); Grupos de interés; Procesos internos (calidad, transparencia, gestión eficiente); Facilitadores y recursos.</td><td>Única institución del corpus LATAM que usa BSC explícito con cuatro perspectivas. 13 OE cuantificados con indicadores por perspectiva. Foco en salud con misión social sólida.</td><td>La UEB es líder en salud y calidad de vida. La UPCH muestra cómo articular esa identidad con un BSC riguroso. El Proyecto 11 del PDCM (Excelencia en gestión) puede adoptar esta arquitectura de seguimiento.</td></tr><tr><td><strong>U. Rafael Landívar</strong></td><td>Guatemala</td><td>Privada / jesuita / multicampus</td><td>2022–2030</td><td>Ejes: identidad jesuita y apostólica; transformación social desde y con las comunidades; formación integral (competencias, humanismo, fe); investigación con pertinencia local; presencia territorial (multicampus en Guatemala).</td><td>Horizonte 2030 de 8 años — el más largo de las instituciones jesuitas del corpus. Énfasis explícito en presencia territorial como apuesta estratégica. Vínculo con comunidades indígenas y rurales.</td><td>La UEB tiene el Proyecto 8 (Articulación con actores) y proyección a región Andina. La Landívar muestra que el territorio puede ser un eje estratégico propio, no solo un ámbito de extensión.</td></tr><tr><td><strong>U. San Francisco de Quito (USFQ)</strong></td><td>Ecuador</td><td>Privada / laica / Liberal Arts</td><td>2019–2024 (VENCIDO)</td><td>Plan vencido. Ejes identificados (para referencia histórica): modelo Liberal Arts y Artes Liberales; investigación interdisciplinaria; internacionalización; campus universitario como comunidad.</td><td>La USFQ fue pionera del modelo Liberal Arts en América Latina. Identidad muy fuerte con impacto regional.</td><td>LIMITACIÓN: plan vencido. No se encontró renovación en la carpeta. Para el análisis comparativo vigente, se recomienda buscar el plan 2025-2030 de la USFQ.</td></tr><tr><td><strong>U. Tecnológica de Panamá (UTP)</strong></td><td>Panamá</td><td>Pública / técnica / ingeniería</td><td>PDI 2018–2030</td><td>5 áreas de desarrollo: Docencia; Investigación; Innovación y Vinculación con la Sociedad; Internacionalización; Gestión. &#x27;Ruta UTP 2030: Un Proyecto de Estado con Liderazgo Transformacional&#x27;.</td><td>Única institución PÚBLICA del corpus LATAM. El plan se presenta como &#x27;Proyecto de Estado&#x27;, no solo institucional. Horizonte 2030 desde 2018 (12 años) — el más largo del corpus.</td><td>La UEB es privada y sin ánimo de lucro. La UTP muestra cómo articular una visión de largo plazo con misión pública y compromisos verificables. Relevante para el posicionamiento del PDCM como actor clave del país.</td></tr><tr><td><strong>Mackenzie (U. Presbiteriana)</strong></td><td>Brasil</td><td>Privada / presbiteriana / multicampus</td><td>2025–2029</td><td>5 ejes: identidad y excelencia institucional; innovación académica; investigación e innovación tecnológica; expansión y sostenibilidad; internacionalización.</td><td>Institución presbiteriana con identidad no católica en América Latina — diferenciación real. Fuerte en ingenierías y arquitectura. Expansión regional como apuesta con metas de nuevos campus.</td><td>La UEB tiene el Proyecto 15 (Campus físico) y el Proyecto 1 (Oferta). Mackenzie muestra cómo la expansión física puede articularse con la sostenibilidad financiera — lección directa para la modelación financiera del Proyecto 15.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bn-section-subtitle" style="margin:12px 18px 18px;">* Planes vencidos y limitaciones se señalan en la columna &#x27;País&#x27; en naranja. La U. de Lima no pudo analizarse por limitación técnica del PDF (imagen sin texto).</p>
+    </details>
+    </div>
+
+    <div class="global-panel bn-merged-block" id="latam-como">
+      <div class="bn-section-label">Pregunta 2</div>
+      <h3>¿Cómo están planeando?</h3>
+      <p class="bn-section-subtitle">Sofisticación metodológica, participación, modelo educativo y despliegue institucional.</p>
+      <h4 class="bn-subheading">Lectura estratégica</h4>
+      <p>El cómo de la planeación en el corpus LATAM es más sofisticado que en el corpus nacional en dos dimensiones específicas: la participación y el modelo educativo. La participación va más allá de talleres con la comunidad — en la UCA Argentina nace de un proceso sinodal de varios meses; en la PUC-Rio involucra 200 líderes en workshops y produce 12 planes de escuela independientes; en la PUCMM se articula como cocreación explícita con mapa estratégico. El modelo educativo opera como ancla: el Tec21, el Liberal Arts de la UDLAP, el modelo multiexperiencial de CETYS y el BSC de la UPCH no son metodologías auxiliares — son el núcleo del plan.</p><p>Un hallazgo metodológico de primer orden es la separación que hacen las instituciones más maduras entre el proceso de planeación y el documento del plan. La PUC Argentina documenta el Camino Sinodal como proceso previo al plan. La PUCE Ecuador ordena su plan alrededor de tres preguntas simples antes de formular objetivos. La PUCMM publica un mapa estratégico visual que es comprensible para cualquier miembro de la comunidad. Esa separación entre proceso y producto es exactamente lo que el PDCM reconoce como necesario para el próximo PDI de los 50 años.</p><p>La segunda dimensión que distingue al corpus LATAM es la presencia de ecosistemas de innovación como resultado estratégico, no solo como aspiración. La PUCRS tiene el Porto Alegre Tech Hub operando. El Tec de Monterrey tiene Ciudad Tec y múltiples hubs de emprendimiento con empresas instaladas. CETYS tiene hubs de innovación con impacto regional en Baja California. Esos ecosistemas generan ingresos propios, atraen talento y consolidan reputación. Son el tipo de apuesta que puede diferenciar a la UEB en el contexto colombiano si el Hub iEX alcanza esa escala.</p>
+      <div class="highlight-box" style="margin:20px 0;">
+        <p><strong>Hallazgo transversal:</strong> Las instituciones del corpus LATAM que más han avanzado son las que convirtieron su identidad institucional — jesuita, Liberal Arts, técnico-científica, BPSyC — en un modelo educativo con nombre propio y con metas verificables. No es suficiente declarar el BPSyC en el PEI; el Tec21 existe porque tiene modos de enseñanza definidos, competencias medibles y mecanismos de actualización curricular. La UEB tiene la oportunidad de hacer lo mismo con el BPSyC en el próximo PDI.</p>
+      </div>
+      <details class="sidebar-subgroup" style="margin-top:24px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;">
+      <summary style="padding:14px 18px;background:#f8fafc;cursor:pointer;font-weight:700;color:var(--accent);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+        <span>▾ &nbsp; Tabla de metodologías de planeación · LATAM (clic para expandir)</span>
+        <span style="font-size:12px;color:#64748b;font-weight:600;text-align:right;">Clasificación por dimensión metodológica</span>
+      </summary>
+      <div class="pdi-table-wrap" style="margin:0;border-radius:0;">
+        <table class="pdi-table">
+          <thead><tr><th>Dimensión metodológica</th><th>Descripción</th><th>Instituciones que lo hacen bien en LATAM</th><th>Relevancia y aplicación para la UEB</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Prospectiva formal con escenarios</strong></td><td>Análisis de tendencias, construcción de escenarios alternativos, selección de escenario apuesta. La estrategia surge de explorar futuros posibles, no de intuiciones directivas.</td><td>Ninguna institución del corpus LATAM lo hace de manera formal explícita. CETYS usa análisis de tendencias. La Ibero discernimiento comunitario.</td><td>⭐⭐⭐⭐⭐ No encontrado en LATAM. Oportunidad de diferenciación para la UEB en 2027.</td></tr><tr><td><strong>Proceso sinodal / participativo amplio</strong></td><td>Consulta comunitaria estructurada con todos los estamentos antes de formular objetivos. El plan surge de voces, no de directivos.</td><td>UCA Argentina (Camino Sinodal). PUCMM (cocreación explícita). PUC-Rio (200+ líderes en workshops).</td><td>⭐⭐⭐⭐ Alta. El PDCM menciona proceso participativo — el próximo PDI puede formalizar esta metodología.</td></tr><tr><td><strong>BSC (Balanced Scorecard) con 4 perspectivas</strong></td><td>Mapa estratégico con perspectivas encadenadas (Facilitadores → Procesos → Grupos de Interés → Resultados), indicadores y metas.</td><td>UPCH (única con BSC explícito en LATAM). PUC-Rio y CETYS implícitamente.</td><td>⭐⭐⭐⭐ Alta. El Proyecto 11 del PDCM puede adoptar esta arquitectura para el tablero de indicadores.</td></tr><tr><td><strong>Modelo educativo propio como ancla estratégica</strong></td><td>El plan se estructura alrededor de un modelo educativo diferenciador que da coherencia a todos los demás ejes.</td><td>Tec de Monterrey (Tec21), UDLAP (Liberal Arts + tronco común), CETYS (multiexperiencial), USFQ (Liberal Arts).</td><td>⭐⭐⭐⭐ Alta. El PDCM tiene el Proyecto 2 (Ecosistema de aprendizaje). El BPSyC puede ser el modelo educativo propio de la UEB.</td></tr><tr><td><strong>Plan con nombre propio y narrativa movilizadora</strong></td><td>El plan recibe un nombre que opera como contrato de identidad y se convierte en relato institucional compartido.</td><td>PUCE Ecuador (MAGIS), UTP Panamá (Ruta UTP 2030), PUC Argentina (Proyecto Institucional UCA).</td><td>⭐⭐⭐⭐ Alta. El próximo PDI de los 50 años necesita un nombre propio que convoque y que conecte identidad con futuro.</td></tr><tr><td><strong>Ecosistema de innovación con valor económico propio</strong></td><td>La universidad crea un hub de innovación que genera ingresos, empleos y alianzas, no solo servicios internos.</td><td>PUCRS (Porto Alegre Tech Hub), Tec de Monterrey (Ciudad Tec, ecosistema emprendedor), CETYS (hubs de innovación).</td><td>⭐⭐⭐⭐ Alta. El PDCM tiene el Hub iEX. La PUCRS muestra cómo ese hub puede convertirse en un activo financiero y reputacional real.</td></tr><tr><td><strong>Alineación explícita con ODS y planes nacionales</strong></td><td>El plan conecta cada eje con los Objetivos de Desarrollo Sostenible y con la agenda del país, no solo con la misión institucional.</td><td>UDLA Ecuador (ODS + Plan Nacional Ecuador), UTP Panamá (ODS), UCU (agenda jesuita regional).</td><td>⭐⭐⭐ Media-alta. El PDCM puede ganar legitimidad pública con una alineación más explícita con los ODS y el contexto colombiano.</td></tr><tr><td><strong>Cascada multicampus con planes de unidad académica</strong></td><td>El PDI institucional se despliega en planes específicos por sede, facultad o escuela con metas propias.</td><td>PUCE Ecuador (planes por sede), PUC-Rio (12 planes por escuela), PUCMM (por campus Santiago y Santo Domingo).</td><td>⭐⭐⭐ Media. Aunque la UEB es de un campus, puede replicar esto a nivel de facultad: cada facultad con su propio plan articulado al PDCM.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </details>
+    </div>
+
+    <div class="global-panel bn-merged-block" id="latam-horizonte">
+      <div class="bn-section-label">Pregunta 3</div>
+      <h3>¿En qué horizonte de tiempo?</h3>
+      <p class="bn-section-subtitle">Horizontes operativos, aspiracionales y oportunidad de posicionamiento para el PDI de los 50 años.</p>
+      <h4 class="bn-subheading">Lectura estratégica</h4>
+      <p>El corpus LATAM revela una tendencia dominante: el plan quinquenal (4 a 6 años) sigue siendo la norma — 15 de las 23 instituciones trabajan en ese rango. Sin embargo, las instituciones que han construido posicionamiento de largo plazo operan con dos horizontes simultáneos: uno aspiracional que define identidad y campo de juego, y uno operativo que fija proyectos y metas verificables.</p><p>Tres instituciones del corpus muestran horizontes notablemente largos y merecen atención especial. CETYS tiene su Plan 2036 — 12 años de horizonte con metas intermedias y revisión anual. La UTP de Panamá tiene el PDI 2018-2030, que se presenta como &#x27;Proyecto de Estado con Liderazgo Transformacional&#x27; — un horizonte de 12 años que opera como compromiso cívico, no solo institucional. La U. Rafael Landívar tiene su PDI 2022–2030, con 8 años y énfasis en presencia territorial. Estos tres casos muestran que un horizonte largo no es incompatible con la ejecución si se articula con metas intermedias claras.</p><p>Lo más relevante para la UEB es que ninguna institución del corpus LATAM ha declarado un horizonte de 50 años. La UEB lo hará en 2027, cuando cumpla su primer medio siglo. Eso no tiene precedente regional. Puede convertirse en la apuesta de posicionamiento institucional más significativa de la historia reciente de la Universidad El Bosque — si se construye con la misma rigurosidad metodológica de los mejores referentes del corpus LATAM e internacional.</p>
+      <div class="highlight-box" style="margin:20px 0;">
+        <p><strong>Recomendación directiva:</strong> El proceso de preparación del próximo PDI debería arrancar en 2026 con tres insumos simultáneos: (1) un ejercicio prospectivo que explore escenarios al 2037 y más allá, análogo al del Externado en el corpus nacional; (2) un documento base previo que sistematice la historia, la identidad y las capacidades de la UEB — análogo al &#x27;Navegando la Tormenta&#x27; de los Andes o al proceso sinodal de la UCA; y (3) la decisión sobre el nombre del nuevo plan, porque en 2027 la UEB cumple 50 años y ese nombre importa tanto como el contenido. El PDCM 2025-2027 ya lo anuncia (Capítulo VIII) — este análisis busca alimentar la ambición y el rigor de ese proceso.</p>
+      </div>
+      <div class="bn-anchor-grid" style="margin-top:18px;">
+        <div class="bn-anchor-card" style="cursor:default;"><strong>Norma regional</strong><span>El plan quinquenal —4 a 6 años— sigue siendo el formato dominante entre las instituciones latinoamericanas revisadas.</span></div>
+        <div class="bn-anchor-card" style="cursor:default;"><strong>Doble horizonte</strong><span>Las instituciones con mayor posicionamiento combinan visión aspiracional de largo plazo con metas operativas verificables.</span></div>
+        <div class="bn-anchor-card" style="cursor:default;"><strong>Casos de horizonte largo</strong><span>CETYS 2036, UTP Panamá 2018–2030 y U. Rafael Landívar 2022–2030 muestran que el largo plazo sí puede tener ejecución.</span></div>
+        <div class="bn-anchor-card" style="cursor:default;"><strong>Oportunidad UEB</strong><span>El horizonte de 50 años no aparece en el corpus LATAM; puede ser una apuesta regional diferencial si se formula con rigor.</span></div>
+      </div>
+      <details class="sidebar-subgroup" style="margin-top:24px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;">
+      <summary style="padding:14px 18px;background:#f8fafc;cursor:pointer;font-weight:700;color:var(--accent);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+        <span>▾ &nbsp; Tabla de horizontes de tiempo · Solo planes vigentes (clic para expandir)</span>
+        <span style="font-size:12px;color:#64748b;font-weight:600;text-align:right;">LATAM · 22 instituciones con plan vigente (se excluye USFQ 2019-2024 por plan vencido)</span>
+      </summary>
+      <div class="pdi-table-wrap" style="margin:0;border-radius:0;">
+        <table class="pdi-table">
+          <thead><tr><th>Universidad</th><th>Nombre del plan</th><th>Horizonte operativo</th><th>Horizonte aspiracional declarado</th><th>Doble horizonte</th><th>Mecanismo de seguimiento / adaptación</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CETYS Universidad</strong></td><td>Plan 2036</td><td>Horizonte 2036</td><td>2036 explícito</td><td>Sí: pilares de largo plazo + metas intermedias</td><td>Anual por campus y programa</td></tr><tr><td><strong>U. Iberoamericana</strong></td><td>Horizonte 2023-2027</td><td>2023-2027</td><td>No declarado más allá</td><td>No: plan quinquenal sin aspiracional explícito</td><td>Por ejes con metas anuales</td></tr><tr><td><strong>Tec de Monterrey</strong></td><td>Visión 2030</td><td>Visión 2030</td><td>2030 explícito</td><td>Sí: campus conectados + implementación Tec21 por fases</td><td>Por campus y programas</td></tr><tr><td><strong>U. Anáhuac</strong></td><td>PDI 2025-2027</td><td>2025-2027</td><td>No declarado</td><td>No: plan trienal</td><td>Por línea con metas anuales</td></tr><tr><td><strong>PUC Argentina (UCA)</strong></td><td>Proyecto Institucional 2025-2028</td><td>2025-2028</td><td>No declarado</td><td>No: cuatrienio con proceso sinodal previo</td><td>Por vicerrectorado</td></tr><tr><td><strong>PUC Chile</strong></td><td>Plan 2020-2025</td><td>2020-2025</td><td>No declarado</td><td>Parcial: compromiso de renovación cada 5 años</td><td>Por compromisos y metas</td></tr><tr><td><strong>PUCE Ecuador</strong></td><td>MAGIS 2021-2026</td><td>2021-2026 (extendido)</td><td>No declarado</td><td>No: plan quinquenal con extensión por 1 año</td><td>Por sede y objetivo</td></tr><tr><td><strong>PUCP Perú</strong></td><td>PDI 2023-2027</td><td>2023-2027</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por ejes</td></tr><tr><td><strong>PUCMM</strong></td><td>Plan 2023-2028</td><td>2023-2028</td><td>No declarado</td><td>Parcial: mapa estratégico con hitos de mediano plazo</td><td>Por eje y unidad académica</td></tr><tr><td><strong>PUC-Rio</strong></td><td>PDI 2023-2027</td><td>2023-2027</td><td>No declarado</td><td>No: plan quinquenal con planes por escuela</td><td>Anual por escuela (12 planes)</td></tr><tr><td><strong>PUCRS</strong></td><td>PDI 2023-2027</td><td>2023-2027</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por directores estratégicos</td></tr><tr><td><strong>UCC Córdoba</strong></td><td>PDI 2021-2026</td><td>2021-2026</td><td>No declarado</td><td>No: plan sexenal con orientaciones</td><td>Por orientación estratégica</td></tr><tr><td><strong>UCU Uruguay</strong></td><td>PDI 2025-2030</td><td>2025-2030</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por ejes con revisión</td></tr><tr><td><strong>UCC Veracruz</strong></td><td>PDI 2024-2028</td><td>2024-2028</td><td>No declarado</td><td>No: plan cuatrienal</td><td>Por eje y línea (27 líneas)</td></tr><tr><td><strong>UDLA Ecuador</strong></td><td>PEDI 2025-2030</td><td>2025-2030</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por pilar con ejes estratégicos</td></tr><tr><td><strong>UDLAP México</strong></td><td>Plan 2026-2030</td><td>2026-2030</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por eje estratégico</td></tr><tr><td><strong>UVG Guatemala</strong></td><td>PDI 2025-2029</td><td>2025-2029</td><td>No declarado</td><td>No: plan cuatrienal</td><td>Por ejes</td></tr><tr><td><strong>UPCH Perú</strong></td><td>PDI 2022-2026</td><td>2022-2026</td><td>No declarado</td><td>No: plan quinquenal con BSC</td><td>BSC: 4 perspectivas + 13 OE</td></tr><tr><td><strong>U. Rafael Landívar</strong></td><td>PDI 2022-2030</td><td>2022-2030</td><td>2030 explícito</td><td>Sí: horizonte 8 años con metas intermedias</td><td>Por eje con revisión bienal</td></tr><tr><td><strong>UTP Panamá</strong></td><td>PDI 2018-2030</td><td>2018-2030</td><td>2030 explícito (Ruta UTP 2030)</td><td>Sí: horizonte 12 años como proyecto de estado</td><td>Por área de desarrollo + ODS</td></tr><tr><td><strong>Mackenzie Brasil</strong></td><td>PDI 2025-2029</td><td>2025-2029</td><td>No declarado</td><td>No: plan quinquenal</td><td>Por eje con metas anuales</td></tr><tr><td><strong>U. de Lima</strong></td><td>PDI 2025-2030</td><td>2025-2030</td><td>No determinable (PDF imagen)</td><td>No determinable</td><td>No determinable</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </details>
+    </div>
+
+    <div class="global-panel bn-merged-block" id="latam-sintesis">
+      <div class="bn-section-label">Síntesis</div>
+      <h3>Síntesis: lo que el corpus LATAM le dice a la UEB</h3>
+      <p>El análisis comparado de 23 instituciones latinoamericanas permite extraer cuatro hallazgos de alto valor estratégico para la Universidad El Bosque en el momento en que se prepara para construir el PDI de sus 50 años.</p>
+      <div class="bn-anchor-grid" style="margin-top:18px;"><div class="bn-anchor-card" style="cursor:default;">
+        <strong>1. El BPSyC puede ser el modelo educativo propio de la UEB</strong>
+        <span>El Tec21, el Liberal Arts, el modelo multiexperiencial de CETYS — todos tienen en común que convirtieron una filosofía en un sistema pedagógico verificable. El BPSyC de la UEB lleva décadas como marco filosófico. El próximo PDI tiene la oportunidad de convertirlo en un modelo educativo con nombre propio, competencias definidas, modos de enseñanza específicos y metas de implementación curricular. Eso lo pondría en la misma liga que los mejores referentes del corpus.</span>
+      </div><div class="bn-anchor-card" style="cursor:default;">
+        <strong>2. El Hub iEX puede convertirse en un ecosistema con valor propio</strong>
+        <span>La PUCRS tiene el Porto Alegre Tech Hub; el Tec tiene Ciudad Tec; CETYS tiene sus hubs de innovación. Todos generan ingresos, atraen empresas y consolidan reputación. El Hub iEX del PDCM (proyectos 6, 7, 8 y 15) tiene el potencial de seguir ese camino si se le da escala, autonomía operativa y metas de captación de recursos externos. El corpus LATAM confirma que ese tipo de activo es el que más diferencia a las universidades con sostenibilidad financiera robusta.</span>
+      </div><div class="bn-anchor-card" style="cursor:default;">
+        <strong>3. El proceso del próximo PDI importa tanto como su contenido</strong>
+        <span>La UCA Argentina documenta el Camino Sinodal. La PUC-Rio produce 12 planes de escuela. La PUCE Ecuador organiza su plan alrededor de tres preguntas simples. El PDCM 2025-2027 ya anuncia el proceso hacia el PDI de los 50 años (Capítulo VIII). Lo que el corpus LATAM agrega es la convicción de que ese proceso debe tener su propio diseño metodológico, sus propios actores, su propio cronograma y su propio nombre — antes de que haya ejes ni objetivos.</span>
+      </div><div class="bn-anchor-card" style="cursor:default;">
+        <strong>4. El horizonte de 50 años no tiene precedente en el corpus LATAM</strong>
+        <span>Ninguna de las 23 instituciones latinoamericanas del corpus ha declarado un horizonte de 50 años. La UEB lo hará en 2027. Eso es una apuesta de posicionamiento institucional sin precedente regional. Para que tenga el peso que merece, necesita ser tan riguroso metodológicamente como el Plan 2036 de CETYS o el PDI 2018-2030 de la UTP, y tan movilizador en términos de narrativa como el Proyecto Institucional UCA o el MAGIS de la PUCE. El análisis comparado no sustituye ese trabajo — lo alimenta.</span>
+      </div></div>
+      <div class="highlight-box" style="margin-top:22px;">
+        <p><strong>Nota metodológica:</strong> Este análisis se basó en la lectura directa de los PDFs disponibles en la carpeta 3. Latam. Algunas afirmaciones pueden no reflejar versiones actualizadas de los planes si las instituciones los han renovado sin que la carpeta lo recoja. Se recomienda verificar las versiones vigentes de: USFQ (plan 2025-2030 probable), U. de Lima (versión con texto extraíble) y CETYS (actualizaciones intermedias del Plan 2036). El análisis NO usa fuentes externas — toda la información proviene de los documentos compartidos.</p>
+      </div>
+    </div>
   </div>
 
   <div class="benchmark-view" id="benchmark-internacional">
     <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">I</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.4</div>
     <div class="uni-title">
       <h2>4.4 Referentes internacionales</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
@@ -1314,18 +1642,193 @@
 </div>
 
 
-<div class="uni-panel" id="panel-pdi-buenas">
+<div class="uni-panel" id="panel-pdi-metodologias">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">6</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">5</div>
     <div class="uni-title">
-      <h2>5. Buenas prácticas de planeación universitaria</h2>
-      <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
-      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
+      <h2>5. Benchmark metodológico para la formulación de PDIs</h2>
+      <p>Revisión comparativa de metodologías para construir un PDI flexible, dinámico y adaptable a escenarios</p>
+      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Documento de trabajo</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">Metodología PDI</span></div>
     </div>
   </div>
 
+  <div class="method-tabs" role="tablist" aria-label="Secciones del benchmark metodológico">
+    <button class="method-tab active" type="button" onclick="showMethodTab('intro', this)">5.1 Introducción</button>
+    <button class="method-tab" type="button" onclick="showMethodTab('metodos', this)">5.2 Metodologías revisadas</button>
+    <button class="method-tab" type="button" onclick="showMethodTab('transversal', this)">5.3 Lectura transversal</button>
+    <button class="method-tab" type="button" onclick="showMethodTab('propuesta', this)">5.4 Propuesta integrada</button>
+  </div>
 
+  <div class="method-view active" id="method-intro">
+    <div class="global-panel">
+      <h3>5.1 Introducción</h3>
+      <p>La construcción de un nuevo Plan de Desarrollo Institucional —PDI— exige revisar críticamente las metodologías tradicionales de planeación estratégica en educación superior y contrastarlas con enfoques más recientes de pensamiento de futuros, transformación académica, inteligencia artificial, sostenibilidad, gestión del cambio y toma de decisiones basada en datos.</p>
+      <p>El contexto actual de las instituciones de educación superior está marcado por altos niveles de incertidumbre: transformación digital, inteligencia artificial generativa, cambios demográficos, presión financiera, nuevas expectativas de los estudiantes, demandas de empleabilidad, regulación, acreditación, internacionalización, sostenibilidad, bienestar y competencia creciente. Por tanto, un PDI formulado bajo una lógica rígida, lineal y cerrada corre el riesgo de perder vigencia rápidamente.</p>
+      <p>La revisión de los libros analizados permite concluir que no existe una metodología única capaz de responder por sí sola a todos los desafíos actuales. Por el contrario, la construcción del nuevo PDI requiere una metodología híbrida que combine participación, análisis estratégico, gestión del cambio, escenarios, indicadores, innovación académica y capacidad de adaptación permanente.</p>
+      <div class="highlight-box"><p>Este capítulo presenta las metodologías identificadas, compara sus aportes y limitaciones, y propone una ruta integrada para estructurar un <strong>PDI Adaptativo por Escenarios</strong>: no como documento estático, sino como sistema vivo de dirección estratégica.</p></div>
+    </div>
+    <div class="method-summary-grid">
+      <div class="method-card"><strong>7</strong><span>enfoques metodológicos revisados</span></div>
+      <div class="method-card"><strong>6</strong><span>componentes de una metodología integrada</span></div>
+      <div class="method-card"><strong>7</strong><span>fases de despliegue del PDI Adaptativo por Escenarios</span></div>
+    </div>
+  </div>
+
+  <div class="method-view" id="method-metodos">
+    <div class="global-panel">
+      <h3>5.2 Metodologías revisadas por libro</h3>
+      <p>La revisión permite identificar qué aporta cada fuente al diseño del nuevo PDI: participación, estructura técnica, herramientas operativas, agenda contemporánea, pensamiento de futuros, transformación académica y soporte analítico-digital.</p>
+    </div>
+    <div class="pdi-table-wrap">
+      <table class="pdi-table">
+        <thead><tr><th>Autor(es) y libro</th><th>Tipo de metodología</th><th>Foco principal</th><th>Fortalezas</th><th>Limitaciones</th><th>Uso recomendado en el PDI</th></tr></thead>
+        <tbody>
+          <tr><td>Collaborative Strategic Planning in Higher Education</td><td>Planeación estratégica colaborativa</td><td>Participación, apropiación y visión compartida</td><td>Genera legitimidad, confianza y compromiso</td><td>No desarrolla con profundidad escenarios</td><td>Base participativa del PDI</td></tr>
+          <tr><td>Strategic Change in Colleges and Universities</td><td>Motor de planeación estratégica universitaria</td><td>Indicadores, análisis, estrategia e implementación</td><td>Adapta la planeación al contexto universitario</td><td>Puede volverse lineal si se aplica rígidamente</td><td>Gobernanza, gestión del cambio y paso a gestión estratégica</td></tr>
+          <tr><td>Working Toward Strategic Change</td><td>Manual operativo de planeación</td><td>Herramientas, matrices y talleres</td><td>Facilita priorización, KPIs y análisis de impacto</td><td>No es prospectivo</td><td>Caja de herramientas para diagnóstico, formulación y seguimiento</td></tr>
+          <tr><td>Strategic Planning for Higher Education Institutions</td><td>Marco contemporáneo por temas críticos</td><td>Retos actuales de la educación superior</td><td>Actualiza la agenda estratégica</td><td>Puede abrir demasiados frentes</td><td>Identificación de temas estratégicos del PDI</td></tr>
+          <tr><td><strong>Zaidan, Tok, Al-Fadala y Cochrane</strong><span class="book-ref">The Future of Education Policy in the State of Qatar</span></td><td>Pensamiento de futuros</td><td>Escenarios e incertidumbre</td><td>Permite anticipar disrupciones y diseñar futuros alternativos</td><td>Requiere traducción operativa</td><td>Motor prospectivo del PDI</td></tr>
+          <tr><td>Creating the University of the Future</td><td>Future Skills y transformación académica</td><td>Currículo, aprendizaje, competencias y empleabilidad</td><td>Orienta la transformación académica</td><td>No cubre toda la gestión institucional</td><td>Eje académico y formativo del PDI</td></tr>
+          <tr><td>Integrating AI, Security and Sustainability</td><td>Analítica, IA y sostenibilidad</td><td>Datos, tableros, IA, ciberseguridad y sostenibilidad</td><td>Fortalece seguimiento y toma de decisiones</td><td>No es metodología integral de PDI</td><td>Capa digital, analítica y sostenible</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="global-panel">
+      <h3>Comparación por dimensiones del PDI</h3>
+      <p>La comparación por dimensiones permite identificar qué aporta cada enfoque a los componentes centrales del PDI.</p>
+    </div>
+    <div class="pdi-table-wrap">
+      <table class="pdi-table">
+        <thead><tr><th>Dimensión del PDI</th><th>Sanaghan</th><th>Rowley / Dolence / Lujan</th><th>Al-Qaimari / Khan</th><th>Qatar / Futures Thinking</th><th>University of the Future</th><th>AI / Sustainability</th></tr></thead>
+        <tbody>
+          <tr><td>Participación institucional</td><td>Muy alta</td><td>Alta</td><td>Media</td><td>Media</td><td>Alta</td><td>Baja</td></tr>
+          <tr><td>Diagnóstico interno y externo</td><td>Media</td><td>Muy alta</td><td>Alta</td><td>Alta</td><td>Media</td><td>Alta en datos</td></tr>
+          <tr><td>Escenarios e incertidumbre</td><td>Media</td><td>Baja-media</td><td>Media</td><td>Muy alta</td><td>Media</td><td>Media</td></tr>
+          <tr><td>Indicadores y seguimiento</td><td>Media</td><td>Muy alta</td><td>Alta</td><td>Media</td><td>Media</td><td>Muy alta</td></tr>
+          <tr><td>Transformación académica</td><td>Media</td><td>Media</td><td>Alta</td><td>Media</td><td>Muy alta</td><td>Alta</td></tr>
+          <tr><td>IA y digitalización</td><td>Baja</td><td>Baja-media</td><td>Alta</td><td>Media</td><td>Alta</td><td>Muy alta</td></tr>
+          <tr><td>Sostenibilidad</td><td>Media</td><td>Media</td><td>Alta</td><td>Alta</td><td>Alta</td><td>Muy alta</td></tr>
+          <tr><td>Gestión del cambio</td><td>Alta</td><td>Muy alta</td><td>Media</td><td>Media</td><td>Alta</td><td>Media</td></tr>
+          <tr><td>Flexibilidad y adaptabilidad</td><td>Alta</td><td>Media</td><td>Media</td><td>Muy alta</td><td>Muy alta</td><td>Alta</td></tr>
+          <tr><td>Implementación</td><td>Alta</td><td>Muy alta</td><td>Alta</td><td>Media</td><td>Media</td><td>Alta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box"><p>Ningún enfoque resuelve por completo las necesidades de un PDI flexible y dinámico. Sanaghan es fuerte en participación; Rowley, Lujan y Dolence en estructura, indicadores e implementación; Qatar en escenarios; Ehlers y Eigbrecht en transformación académica; Al-Qaimari y Khan en agenda contemporánea; y el enfoque de IA y sostenibilidad en la dimensión tecnológica y analítica.</p></div>
+
+    <div class="method-book-tabs" role="tablist" aria-label="Subsecciones de metodologías revisadas">
+      <button class="method-book-tab active" type="button" onclick="showMethodBookTab('sanaghan', this)">A. Sanaghan - Collaborative Strategic Planning</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('rowley', this)">B. Rowley, Lujan y Dolence - Strategic Change</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('working', this)">C. Dolence, Rowley y Lujan - Working Toward Strategic Change</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('alqaimari', this)">D. Al-Qaimari y Khan - Strategic Planning</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('qatar', this)">E. Zaidan et al. - Futures Thinking</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('future', this)">F. Ehlers y Eigbrecht - University of the Future</button>
+      <button class="method-book-tab" type="button" onclick="showMethodBookTab('ai', this)">G. Hamdan - IA y sostenibilidad</button>
+    </div>
+
+    <div class="method-book-view active" id="method-book-sanaghan">
+      <div class="global-panel"><h3>A. Patrick Sanaghan - <em>Collaborative Strategic Planning in Higher Education</em></h3><p>El enfoque de Patrick Sanaghan se basa en la planeación estratégica colaborativa. Su punto de partida es que muchos planes estratégicos en educación superior fracasan no porque estén mal redactados, sino porque los actores institucionales no se sienten conectados con el plan ni comprometidos con su implementación.</p><p>La metodología entiende la planeación como un proceso social, no solo técnico. Desde esta mirada, el PDI debe construirse con participación significativa, transparencia, conversación institucional y apropiación colectiva. Sanaghan insiste en que no existe un único modelo aplicable a todas las instituciones: cada universidad debe adaptar el proceso a su cultura, capacidades, historia y necesidades.</p></div>
+      <div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Fase</th><th>Descripción</th></tr></thead><tbody><tr><td>Fase I. Organización del proceso</td><td>Se conforma una fuerza de tarea o Planning Task Force, se define el calendario, los recursos, los responsables y el proceso de comunicación.</td></tr><tr><td>Fase II. Recolección de datos y participación</td><td>Se realizan ejercicios de diálogo, interacción cara a cara, encuestas y espacios de escucha con actores internos y externos.</td></tr><tr><td>Fase III. Interpretación de temas estratégicos</td><td>Se analizan los datos, se identifican patrones y se elaboran documentos conceptuales sobre temas estratégicos.</td></tr><tr><td>Fase IV. Conferencia de visión</td><td>Se construye una imagen compartida del futuro deseado de la institución.</td></tr><tr><td>Fase V. Conferencia de metas</td><td>Se formulan metas, objetivos, planes de acción e iniciativas para avanzar hacia la visión compartida.</td></tr></tbody></table></div>
+      <div class="highlight-box"><p>Para el nuevo PDI, este enfoque aporta la columna vertebral participativa. Su principal limitación es que no desarrolla con profundidad herramientas de prospectiva, incertidumbre o escenarios múltiples; por eso debe complementarse con pensamiento de futuros.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-rowley">
+      <div class="global-panel"><h3>B. Rowley, Lujan y Dolence - <em>Strategic Change in Colleges and Universities</em></h3><p>Este libro propone una metodología diseñada específicamente para instituciones de educación superior. Su tesis central es que las universidades no pueden adoptar sin más modelos empresariales de planeación, porque tienen gobierno compartido, autonomía académica, múltiples actores, tensiones políticas internas y procesos decisionales colegiados.</p><p>El modelo conocido como <em>Strategic Planning Engine</em> articula análisis interno, análisis externo, indicadores de desempeño, generación de estrategias, implementación y evaluación. La planeación estratégica debe ser un proceso de aprendizaje institucional: no solo formular un documento, sino desarrollar pensamiento estratégico, comprensión del entorno, capacidad de decisión y gestión del cambio.</p></div>
+      <div class="global-panel"><h4>Aportes al PDI</h4><ul class="compact-list"><li>Definir indicadores clave de desempeño.</li><li>Analizar el entorno externo y las capacidades internas.</li><li>Formular estrategias y gestionar su implementación.</li><li>Evaluar avances y convertir la planeación en gestión estratégica.</li></ul></div>
+      <div class="highlight-box"><p>Su principal aporte está en el paso de la planeación a la gestión. Su limitación es que puede volverse pesado o rígido si se aplica de manera lineal; por eso debe reinterpretarse como motor de gestión continua.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-working">
+      <div class="global-panel"><h3>C. Dolence, Rowley y Lujan - <em>Working Toward Strategic Change</em></h3><p>Este libro funciona como manual operativo del enfoque anterior. Mientras <em>Strategic Change in Colleges and Universities</em> desarrolla el fundamento conceptual, este texto ofrece ejercicios, formatos, matrices y herramientas para ejecutar el proceso de planeación.</p></div>
+      <div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Paso</th><th>Componente metodológico</th></tr></thead><tbody><tr><td>1</td><td>Desarrollo de indicadores clave de desempeño — KPIs.</td></tr><tr><td>2</td><td>Evaluación del entorno externo.</td></tr><tr><td>3</td><td>Evaluación del entorno interno.</td></tr><tr><td>4</td><td>Análisis de fortalezas, debilidades, oportunidades y amenazas.</td></tr><tr><td>5</td><td>Generación de ideas.</td></tr><tr><td>6</td><td>Prueba de ideas.</td></tr><tr><td>7</td><td>Formulación de estrategias, metas y objetivos.</td></tr><tr><td>8</td><td>Determinación de la preparación institucional para el cambio.</td></tr><tr><td>9</td><td>Implementación de la estrategia y documentación de impactos.</td></tr><tr><td>10</td><td>Evaluación y revisión del plan.</td></tr></tbody></table></div>
+      <div class="global-panel"><p>Uno de sus aportes más útiles es el análisis de impacto cruzado, que permite evaluar cómo una idea, proyecto o estrategia afecta indicadores institucionales como matrícula, calidad, sostenibilidad financiera, tecnología, bienestar o reputación.</p></div>
+      <div class="highlight-box"><p>Aporta la caja de herramientas operativa: talleres, matrices de priorización, formatos de indicadores, análisis de impacto, evaluación de preparación para el cambio y seguimiento.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-alqaimari">
+      <div class="global-panel"><h3>D. Al-Qaimari y Khan - <em>Strategic Planning for Higher Education Institutions</em></h3><p>Este libro aporta una visión contemporánea de la planeación estratégica en educación superior. No se limita a una metodología paso a paso: organiza la reflexión alrededor de desafíos actuales como cuarta revolución industrial, transformación digital, internacionalización, rankings, acreditaciones, educación híbrida, IA, sostenibilidad, investigación, innovación, emprendimiento, marketing para nuevas generaciones y liderazgo.</p></div>
+      <div class="global-panel"><h4>Temas críticos para el PDI</h4><ul class="compact-list"><li>Transformación digital e inteligencia artificial.</li><li>Educación híbrida, virtualidad y flexibilidad académica.</li><li>Acreditación, rankings, internacionalización y pertinencia.</li><li>Empleabilidad, investigación, innovación y emprendimiento.</li><li>Relación universidad-empresa-Estado, regulación y liderazgo institucional.</li></ul></div>
+      <div class="highlight-box"><p>Su utilidad es evitar que el PDI quede desactualizado o limitado a temas internos. Su limitación es que puede abrir demasiados frentes si no se prioriza.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-qatar">
+      <div class="global-panel"><h3>E. Zaidan, Tok, Al-Fadala y Cochrane - <em>The Future of Education Policy in the State of Qatar</em></h3><p>Este enfoque es especialmente relevante para construir un PDI flexible y adaptable. La planeación tradicional suele apoyarse en datos históricos y proyecciones lineales; eso puede funcionar en contextos estables, pero resulta insuficiente frente a rupturas, discontinuidades, señales débiles y transformaciones aceleradas como la pandemia o la inteligencia artificial generativa.</p><p>El pensamiento de futuros no busca predecir, sino ampliar la capacidad institucional para anticipar, imaginar, prepararse y actuar frente a futuros alternativos.</p></div>
+      <div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Herramienta</th><th>Utilidad para el PDI</th></tr></thead><tbody><tr><td>Horizon scanning</td><td>Identificar señales emergentes, señales débiles, tendencias, rupturas y cambios disruptivos.</td></tr><tr><td>Systems thinking</td><td>Comprender la institución como un sistema interdependiente.</td></tr><tr><td>Axes of uncertainty</td><td>Identificar incertidumbres críticas y construir escenarios.</td></tr><tr><td>Scenario planning</td><td>Diseñar futuros plausibles para orientar decisiones estratégicas.</td></tr><tr><td>Preferred futures</td><td>Definir futuros deseables y movilizadores.</td></tr><tr><td>Backcasting</td><td>Partir del futuro deseado y retroceder para definir acciones presentes.</td></tr></tbody></table></div>
+      <div class="highlight-box"><p>Para el nuevo PDI, este enfoque aporta el motor prospectivo y adaptativo. Debe conectarse con gobernanza, indicadores, presupuesto y seguimiento para no quedarse solo en reflexión prospectiva.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-future">
+      <div class="global-panel"><h3>F. Ehlers y Eigbrecht - <em>Creating the University of the Future</em></h3><p>Este libro aporta una perspectiva centrada en las <em>Future Skills</em> y en la transformación de la universidad frente a un mundo cambiante. La educación superior debe formar personas capaces de actuar en contextos complejos, inciertos, digitales, globales y altamente dinámicos.</p><p>El texto plantea que la universidad del futuro debe ser flexible, permitir que los estudiantes aprendan a su propio ritmo, promover la colaboración y enfocarse en la agencia del estudiante. También cuestiona la idea de un currículo fijo transmitido de manera tradicional y propone currículos co-creados, ambientes de aprendizaje innovadores y herramientas para navegar la complejidad.</p></div>
+      <div class="global-panel"><h4>Aplicaciones al PDI</h4><ul class="compact-list"><li>Currículo flexible y rutas personalizadas.</li><li>Microcredenciales y aprendizaje a lo largo de la vida.</li><li>Evaluación formativa y aprendizaje basado en problemas reales.</li><li>Competencias digitales, socioemocionales, pensamiento crítico y colaboración.</li><li>Agencia del estudiante y empleabilidad futura.</li></ul></div>
+      <div class="highlight-box"><p>Su mayor valor está en el eje académico, pedagógico y de empleabilidad; no constituye por sí solo una metodología completa de planeación institucional.</p></div>
+    </div>
+
+    <div class="method-book-view" id="method-book-ai">
+      <div class="global-panel"><h3>G. Hamdan - <em>Integrating Artificial Intelligence, Security for Environmental and Business Sustainability</em></h3><p>Este libro aporta una perspectiva tecnológica, analítica y de sostenibilidad. No plantea una metodología integral de PDI, pero ofrece elementos clave para que la planeación se apoye en datos, inteligencia artificial, tableros de control, ciberseguridad y sostenibilidad.</p><p>El texto muestra que la IA puede apoyar la gestión inteligente de recursos, la personalización del aprendizaje, la optimización del consumo energético y la mejora de la experiencia educativa. También destaca el uso de tableros de información para integrar datos dispersos y apoyar decisiones institucionales.</p></div>
+      <div class="highlight-box"><p>Para el PDI, aporta la capa tecnológica, analítica y sostenible: seguimiento con datos, alertas, indicadores, analítica institucional e inteligencia de gestión.</p></div>
+    </div>
+  </div>
+
+  <div class="method-view" id="method-transversal">
+    <div class="global-panel">
+      <h3>5.3 Lectura transversal de los enfoques revisados</h3>
+      <h4>Coincidencias</h4>
+      <p>Las metodologías revisadas coinciden en que la planeación estratégica en educación superior no debe reducirse a la elaboración de un documento. Debe ser un proceso institucional de conversación, análisis, priorización, implementación, seguimiento y aprendizaje.</p>
+      <p>También coinciden en la importancia de involucrar actores diversos. La participación no aparece solo como consulta, sino como condición para que el plan tenga legitimidad y pueda implementarse. En educación superior, esto es crucial por las estructuras de gobierno compartido, múltiples grupos de interés y culturas internas complejas.</p>
+      <p>Otra coincidencia es la necesidad de pasar de planes declarativos a planes implementables. Los enfoques revisados insisten en indicadores, responsables, recursos, seguimiento, evaluación y ajustes. La planeación no puede terminar en la formulación; debe extenderse hacia la gestión estratégica.</p>
+      <p>Finalmente, los textos recientes coinciden en que el entorno de la educación superior cambió profundamente. La universidad debe responder a la inteligencia artificial, la transformación digital, la sostenibilidad, la empleabilidad, la internacionalización, las nuevas modalidades educativas y la necesidad de formar capacidades para futuros inciertos.</p>
+    </div>
+    <div class="global-panel">
+      <h4>Diferencias</h4>
+      <p>Las diferencias están en el énfasis de cada metodología. Sanaghan privilegia el proceso colaborativo y la apropiación. Rowley, Lujan y Dolence privilegian la estructura estratégica, los KPIs, la implementación y la evaluación. El libro de Qatar introduce la lógica de futuros, escenarios, señales débiles e incertidumbre. <em>Creating the University of the Future</em> se concentra en las competencias futuras y en la transformación del modelo académico. <em>Strategic Planning for Higher Education Institutions</em> organiza los grandes temas contemporáneos que deben entrar en la agenda institucional. Finalmente, <em>Integrating AI, Security and Sustainability</em> aporta herramientas para gestión basada en datos, IA, sostenibilidad y tableros.</p>
+      <div class="highlight-box"><p>Estas diferencias no son contradicciones: son complementariedades. Por eso, la metodología recomendada para el nuevo PDI debe integrar los aportes más relevantes de cada enfoque.</p></div>
+    </div>
+  </div>
+
+  <div class="method-view" id="method-propuesta">
+    <div class="global-panel">
+      <h3>5.4 Propuesta integrada: PDI Adaptativo por Escenarios</h3>
+      <p>La propuesta integrada adopta elementos de cada metodología y los organiza en un modelo propio para la formulación del nuevo PDI. El resultado es un enfoque híbrido: participativo, prospectivo, técnico, medible y adaptable.</p>
+    </div>
+    <div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Fuente</th><th>Elementos que se adoptan</th><th>Aplicación en el nuevo PDI</th></tr></thead><tbody><tr><td>Rowley, Lujan y Dolence</td><td>Motor estratégico, KPIs, análisis interno y externo, implementación, evaluación, gestión estratégica</td><td>Estructura técnica, indicadores y gestión del cambio</td></tr><tr><td>Working Toward Strategic Change</td><td>Matrices, talleres, análisis de impacto cruzado, evaluación de preparación institucional</td><td>Caja de herramientas operativas</td></tr><tr><td>Sanaghan</td><td>Planeación colaborativa, fuerza de tarea, diálogos, sensemaking, visión compartida, conferencia de metas</td><td>Diseño participativo y apropiación institucional</td></tr><tr><td>Al-Qaimari y Khan</td><td>Retos contemporáneos: IA, digitalización, internacionalización, rankings, acreditación, sostenibilidad, educación híbrida</td><td>Agenda estratégica y temas críticos</td></tr><tr><td>Qatar / Futures Thinking</td><td>Horizon scanning, ejes de incertidumbre, escenarios, futuros preferidos, backcasting</td><td>Componente prospectivo y adaptativo</td></tr><tr><td>Creating the University of the Future</td><td>Future Skills, currículo flexible, agencia del estudiante, microcredenciales, evaluación formativa, aprendizaje permanente</td><td>Transformación académica y modelo formativo</td></tr><tr><td>AI / Security / Sustainability</td><td>Tableros, analítica, IA, green computing, ciberseguridad, datos para decisión</td><td>Seguimiento, transformación digital y sostenibilidad</td></tr></tbody></table></div>
+
+    <div class="global-panel"><h3>PDI Adaptativo por Escenarios</h3><p>La metodología propuesta parte de una premisa central: <strong>el PDI debe tener una visión institucional estable, pero estrategias, proyectos y portafolios ajustables según la evolución del entorno.</strong></p><p>Esto significa que el plan no debe ser una camisa de fuerza. Debe ser una brújula estratégica que oriente a la institución, pero que permita ajustar prioridades, inversiones e iniciativas cuando cambien las condiciones internas o externas.</p><h4>Componentes de la metodología</h4><ul class="compact-list"><li>Diagnóstico integral basado en evidencia.</li><li>Pensamiento de futuros y construcción de escenarios.</li><li>Formulación de apuestas estratégicas robustas.</li><li>Participación colaborativa.</li><li>Portafolio flexible de iniciativas.</li><li>Seguimiento, aprendizaje y ajuste periódico.</li></ul></div>
+
+    <details class="phase-details" open><summary>Fase 0. Preparación y gobernanza del proceso</summary><div class="phase-body"><p>Antes de formular objetivos o proyectos, la institución debe definir quiénes participan, cómo se toman decisiones, cómo se comunica el proceso y cómo se garantiza la articulación entre planeación, presupuesto, calidad, academia, investigación, bienestar, tecnología y sostenibilidad.</p><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Instancia</th><th>Función</th></tr></thead><tbody><tr><td>Comité Directivo del PDI</td><td>Toma decisiones estratégicas, valida apuestas, prioriza recursos y asegura alineación institucional.</td></tr><tr><td>Mesa Ampliada de Co-creación</td><td>Integra voces de estudiantes, profesores, administrativos, egresados, empleadores, aliados y actores externos.</td></tr><tr><td>Unidad de Inteligencia Estratégica</td><td>Gestiona datos, tendencias, escenarios, indicadores, riesgos y tablero de seguimiento.</td></tr></tbody></table></div></div></details>
+    <details class="phase-details"><summary>Fase 1. Diagnóstico integral</summary><div class="phase-body"><p>El diagnóstico del PDI no debe limitarse a una matriz DOFA. Aunque el DOFA puede usarse, debe integrarse dentro de un análisis más amplio y profundo.</p><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Capa</th><th>Pregunta orientadora</th></tr></thead><tbody><tr><td>Datos internos</td><td>¿Cómo está la institución en matrícula, permanencia, graduación, investigación, finanzas, bienestar, tecnología, calidad y talento humano?</td></tr><tr><td>Entorno externo</td><td>¿Qué cambios demográficos, regulatorios, tecnológicos, económicos, laborales y sociales afectan a la institución?</td></tr><tr><td>Voz de actores</td><td>¿Qué esperan estudiantes, profesores, administrativos, egresados, empleadores, aliados y comunidad?</td></tr><tr><td>Capacidad institucional</td><td>¿Qué tan preparada está la institución para cambiar, innovar y ejecutar el PDI?</td></tr><tr><td>Tensiones estratégicas</td><td>¿Qué dilemas deben resolverse? Calidad vs. cobertura, tradición vs. innovación, presencialidad vs. virtualidad, crecimiento vs. sostenibilidad financiera.</td></tr></tbody></table></div></div></details>
+    <details class="phase-details"><summary>Fase 2. Pensamiento de futuros y construcción de escenarios</summary><div class="phase-body"><p>Esta fase diferencia al PDI adaptativo de un PDI tradicional. En lugar de proyectar el futuro como continuidad del pasado, se identifican incertidumbres críticas y se construyen escenarios alternativos.</p><ul class="compact-list"><li>Horizon scanning: tendencias, señales débiles, rupturas, riesgos y oportunidades.</li><li>Identificación de fuerzas de cambio: IA, mercado laboral, regulación, financiación, cambios estudiantiles, sostenibilidad, internacionalización y competencia.</li><li>Definición de incertidumbres críticas: variables con alto impacto y alta incertidumbre.</li><li>Construcción de escenarios y señales tempranas.</li><li>Diseño de respuestas estratégicas para diferentes futuros.</li></ul><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Escenario</th><th>Descripción</th><th>Implicaciones para el PDI</th></tr></thead><tbody><tr><td>Crecimiento con transformación</td><td>Aumenta la demanda, pero los estudiantes exigen flexibilidad, empleabilidad y experiencias digitales.</td><td>Nuevos programas, rutas flexibles, microcredenciales e inversión tecnológica.</td></tr><tr><td>Restricción financiera</td><td>Disminuye la matrícula o aumentan las presiones de costos.</td><td>Priorización, eficiencia, diversificación de ingresos y alianzas.</td></tr><tr><td>Disrupción por IA</td><td>La IA transforma docencia, evaluación, investigación y gestión.</td><td>Política de IA, formación docente, rediseño curricular y analítica académica.</td></tr><tr><td>Regulación y calidad intensiva</td><td>Aumentan exigencias de acreditación, medición, resultados e impacto.</td><td>Sistema robusto de indicadores, evidencias, aseguramiento de calidad y gestión de riesgos.</td></tr></tbody></table></div></div></details>
+    <details class="phase-details"><summary>Fase 3. Formulación de apuestas estratégicas robustas</summary><div class="phase-body"><p>El PDI no debería formular una lista extensa de objetivos. Para mantener foco y capacidad de ejecución, se recomienda trabajar con 4 a 6 apuestas estratégicas.</p><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Apuesta estratégica</th><th>Propósito</th></tr></thead><tbody><tr><td>Excelencia académica flexible y pertinente</td><td>Transformar la oferta académica para responder a estudiantes, empleadores, territorios y futuros del trabajo.</td></tr><tr><td>Transformación digital e IA responsable</td><td>Incorporar tecnologías digitales e inteligencia artificial en docencia, investigación, gestión y servicios.</td></tr><tr><td>Éxito estudiantil, bienestar y permanencia</td><td>Mejorar trayectorias estudiantiles, acompañamiento, bienestar integral y graduación.</td></tr><tr><td>Investigación, innovación y relación con el entorno</td><td>Fortalecer la producción de conocimiento, transferencia, emprendimiento y solución de problemas sociales.</td></tr><tr><td>Sostenibilidad financiera, ambiental y organizacional</td><td>Asegurar viabilidad económica, eficiencia, responsabilidad ambiental y resiliencia institucional.</td></tr><tr><td>Gobernanza, cultura y capacidades para el cambio</td><td>Desarrollar liderazgo, gestión del cambio, datos, colaboración y aprendizaje institucional.</td></tr></tbody></table></div><p>Cada apuesta debe contener propósito, objetivos, indicadores, metas, iniciativas, responsables, recursos, riesgos, señales de ajuste y contribución a escenarios.</p></div></details>
+    <details class="phase-details"><summary>Fase 4. Diseño de portafolio flexible de iniciativas</summary><div class="phase-body"><p>En un PDI adaptativo, los proyectos no se conciben como una lista fija para cinco años. Se organizan como un portafolio flexible, con iniciativas de distinto tipo.</p><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Tipo de iniciativa</th><th>Descripción</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Iniciativas no arrepentimiento</td><td>Deben ejecutarse en cualquier escenario porque fortalecen capacidades críticas.</td><td>Sistema de datos institucionales, formación docente en IA, fortalecimiento de permanencia.</td></tr><tr><td>Iniciativas condicionadas</td><td>Se activan si aparecen determinadas señales del entorno.</td><td>Expansión de oferta virtual si crece la demanda de educación flexible.</td></tr><tr><td>Iniciativas exploratorias</td><td>Pilotos de bajo costo para aprender antes de escalar.</td><td>Microcredenciales, laboratorios de IA, modelos híbridos por facultad.</td></tr><tr><td>Iniciativas transformacionales</td><td>Cambios estructurales de alto impacto.</td><td>Rediseño curricular institucional, nuevo modelo de gestión académica, plataforma integral de experiencia estudiantil.</td></tr></tbody></table></div></div></details>
+    <details class="phase-details"><summary>Fase 5. Indicadores, tablero y seguimiento adaptativo</summary><div class="phase-body"><p>El seguimiento debe ser uno de los componentes centrales del PDI. Para ello se propone construir un Tablero PDI Vivo, con indicadores de desempeño, indicadores de riesgo y señales de escenario.</p><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Tipo de indicador</th><th>Función</th></tr></thead><tbody><tr><td>KPIs — Indicadores clave de desempeño</td><td>Miden avance en resultados estratégicos.</td></tr><tr><td>KRIs — Indicadores clave de riesgo</td><td>Alertan sobre amenazas que pueden afectar el logro del PDI.</td></tr><tr><td>Indicadores de escenario</td><td>Permiten identificar hacia qué futuro se está moviendo el entorno.</td></tr><tr><td>Indicadores de ejecución</td><td>Miden avance físico, financiero y operativo de las iniciativas.</td></tr><tr><td>Indicadores de impacto</td><td>Evalúan cambios reales en estudiantes, profesores, programas, investigación, sostenibilidad y entorno.</td></tr></tbody></table></div><div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Ciclo</th><th>Propósito</th></tr></thead><tbody><tr><td>Mensual</td><td>Seguimiento operativo de iniciativas críticas.</td></tr><tr><td>Trimestral</td><td>Revisión de avance estratégico y toma de decisiones.</td></tr><tr><td>Semestral</td><td>Revisión de escenarios, riesgos y señales del entorno.</td></tr><tr><td>Anual</td><td>Actualización del portafolio, presupuesto y prioridades.</td></tr><tr><td>Bianual</td><td>Evaluación profunda de apuestas estratégicas y ajustes de mediano plazo.</td></tr></tbody></table></div></div></details>
+    <details class="phase-details"><summary>Fase 6. Aprendizaje institucional y ajuste del PDI</summary><div class="phase-body"><p>La última fase consiste en convertir el PDI en un proceso de aprendizaje institucional. El plan no se ajusta por improvisación, sino mediante reglas claras de revisión.</p><ul class="compact-list"><li>Revisión de indicadores.</li><li>Análisis de señales de entorno.</li><li>Evaluación de escenarios y riesgos.</li><li>Balance de ejecución presupuestal.</li><li>Evaluación de impacto.</li><li>Decisión sobre continuidad, ajuste, escalamiento o cierre de iniciativas.</li><li>Comunicación institucional de cambios.</li></ul></div></details>
+
+    <div class="global-panel"><h3>Arquitectura final del PDI</h3><p>Esta arquitectura permite diferenciar lo que debe permanecer estable de lo que debe adaptarse. La visión y los principios institucionales ofrecen continuidad; las iniciativas, metas operativas y asignación de recursos pueden ajustarse según los cambios del entorno.</p></div>
+    <div class="pdi-table-wrap"><table class="pdi-table"><thead><tr><th>Nivel</th><th>Horizonte</th><th>Contenido</th></tr></thead><tbody><tr><td>Visión institucional</td><td>10 años</td><td>Norte estratégico, identidad, propósito y aspiración de futuro.</td></tr><tr><td>Apuestas estratégicas</td><td>4 o 5 años</td><td>Grandes prioridades institucionales.</td></tr><tr><td>Portafolio de iniciativas</td><td>2 años</td><td>Proyectos priorizados, financiados y gestionados.</td></tr><tr><td>Ciclos adaptativos</td><td>90 / 180 días</td><td>Revisión, aprendizaje, ajuste y toma de decisiones.</td></tr></tbody></table></div>
+  </div>
+</div>
+
+<div class="uni-panel" id="panel-pdi-otros">
+
+  <div class="uni-header">
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">6</div>
+    <div class="uni-title">
+      <h2>6. Otros insumos estratégicos</h2>
+      <p>Buenas prácticas, escenarios, focos y narrativa estratégica para el nuevo PDI</p>
+      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">Contenido agrupado</span></div>
+    </div>
+  </div>
+
+  <div class="inner-tabs" role="tablist" aria-label="Otros insumos estratégicos">
+    <button class="inner-tab active" type="button" onclick="showInnerTab('otros-buenas', this)">6.1 Buenas prácticas</button>
+    <button class="inner-tab" type="button" onclick="showInnerTab('otros-escenarios', this)">6.2 Escenarios</button>
+    <button class="inner-tab" type="button" onclick="showInnerTab('otros-focos', this)">6.3 Focos estratégicos</button>
+    <button class="inner-tab" type="button" onclick="showInnerTab('otros-narrativa', this)">6.4 Narrativa estratégica</button>
+  </div>
+
+  <div class="inner-view active" id="inner-otros-buenas">
+    <div class="global-panel"><h3>6.1 Buenas prácticas de planeación universitaria</h3></div>
   <div class="global-panel">
     
 <div class="pdi-table-wrap">
@@ -1336,21 +1839,9 @@
 </div>
   </div>
 
-</div>
-
-
-<div class="uni-panel" id="panel-pdi-escenarios">
-
-  <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">7</div>
-    <div class="uni-title">
-      <h2>6. Escenarios de incertidumbre para el nuevo PDI</h2>
-      <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
-      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
-    </div>
   </div>
-
-
+  <div class="inner-view" id="inner-otros-escenarios">
+    <div class="global-panel"><h3>6.2 Escenarios de incertidumbre para el nuevo PDI</h3></div>
   <div class="global-panel">
     
 <div class="pdi-table-wrap">
@@ -1362,21 +1853,9 @@
     <div class="highlight-box"><p>Decisiones robustas en todos los escenarios: fortalecer permanencia y bienestar; diversificar ingresos; construir portafolio flexible; instalar gobierno de datos; priorizar proyectos de alto impacto; desarrollar capacidades de IA responsable; mejorar empleabilidad; y sostener una narrativa institucional diferenciadora.</p></div>
   </div>
 
-</div>
-
-
-<div class="uni-panel" id="panel-pdi-focos">
-
-  <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">8</div>
-    <div class="uni-title">
-      <h2>7. Propuesta de focos estratégicos para el nuevo PDI</h2>
-      <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
-      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
-    </div>
   </div>
-
-
+  <div class="inner-view" id="inner-otros-focos">
+    <div class="global-panel"><h3>6.3 Propuesta de focos estratégicos para el nuevo PDI</h3></div>
   <div class="global-panel">
     
 <div class="pdi-table-wrap">
@@ -1387,23 +1866,10 @@
 </div>
   </div>
 
-</div>
-
-
-<div class="uni-panel" id="panel-pdi-narrativa">
-
-  <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">9</div>
-    <div class="uni-title">
-      <h2>8. Propuesta de narrativa estratégica</h2>
-      <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
-      <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
-    </div>
   </div>
-
-
+  <div class="inner-view" id="inner-otros-narrativa">
   <div class="global-panel">
-    <h3>8. Propuesta de narrativa estratégica</h3>
+    <h3>6.4 Propuesta de narrativa estratégica</h3>
     <p>La narrativa del PDI debe traducir la estrategia en una idea recordable. No debe ser un eslogan aislado; debe explicar qué universidad quiere ser la UEB, qué problemas ayuda a resolver y cómo conectará identidad, futuro y ejecución.</p>
   </div>
 
@@ -1418,15 +1884,15 @@
     <div class="highlight-box"><p>Recomendación: combinar las dos primeras narrativas. Una fórmula posible sería: “Un PDI vivo para una Universidad El Bosque que forma, investiga e innova al servicio de la vida, el bienestar y los futuros sostenibles del país”. Esta formulación evita que el plan sea solo técnico, pero lo obliga a ser ejecutable y medible.</p></div>
   </div>
 
+  </div>
 </div>
-
 
 <div class="uni-panel" id="panel-pdi-conclusion">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">10</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">7</div>
     <div class="uni-title">
-      <h2>9. Conclusión ejecutiva</h2>
+      <h2>7. Conclusión ejecutiva</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
       <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
     </div>
@@ -1434,7 +1900,7 @@
 
 
   <div class="global-panel">
-    <h3>9. Conclusión ejecutiva</h3>
+    <h3>7. Conclusión ejecutiva</h3>
     <p>El análisis comparado deja una lección central: las universidades que avanzan no están escribiendo planes más extensos, sino construyendo capacidades estratégicas para decidir mejor, ejecutar mejor y adaptarse mejor. En Colombia, Latinoamérica y el mundo, las agendas convergen en calidad, innovación, investigación, sostenibilidad, datos, bienestar, empleabilidad e internacionalización; pero la diferencia real estará en cómo cada institución convierte esas agendas comunes en un posicionamiento propio.</p><p>La Universidad El Bosque debería evitar tres riesgos: formular un PDI genérico parecido al de cualquier universidad; abrir una participación amplia sin criterios de decisión; y aprobar objetivos sin portafolio, presupuesto, indicadores ni responsables. La oportunidad es construir un modelo propio: un PDI vivo, con identidad, prospectiva, medición, ejecución y aprendizaje. La primera decisión institucional debería ser aprobar la arquitectura metodológica del proceso y conformar la gobernanza del PDI antes de iniciar la formulación de ejes.</p>
   </div>
 
@@ -1490,9 +1956,9 @@
 <div class="uni-panel" id="panel-pdi-bibliografia">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#2563eb,#0f766e)">11</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">8</div>
     <div class="uni-title">
-      <h2>10. Bibliografía y fundamentos</h2>
+      <h2>8. Bibliografía y fundamentos</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
       <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
     </div>
@@ -1500,7 +1966,7 @@
 
 
   <div class="global-panel">
-    <h3>10. Bibliografía y fundamentos</h3>
+    <h3>8. Bibliografía y fundamentos</h3>
     <p>La bibliografía compartida sugiere que el nuevo PDI debe integrar cinco lógicas que a veces se trabajan por separado: planeación estratégica, prospectiva, gestión por indicadores, cambio organizacional e innovación educativa. La oportunidad está en articularlas en un solo proceso institucional.</p>
   </div>
 
@@ -1512,6 +1978,26 @@
     <tbody><tr><td>Steiner / Strategic Planning for Higher Education Institutions</td><td>Planeación estratégica</td><td>La estrategia debe conectar misión, diagnóstico, objetivos, programas, recursos y control.</td><td>Estructurar el PDI como sistema de decisiones y no como declaración de intenciones.</td></tr><tr><td>Godet, Miklos y Tello, Schwartz</td><td>Prospectiva y escenarios</td><td>El futuro no se predice: se exploran escenarios plausibles para decidir mejor bajo incertidumbre.</td><td>Construir escenarios país-universidad antes de fijar metas rígidas.</td></tr><tr><td>Balanced Scorecard en educación superior</td><td>Gestión estratégica e indicadores</td><td>La estrategia requiere mapa causal, indicadores, metas, iniciativas y seguimiento.</td><td>Convertir los ejes del PDI en tablero estratégico con responsables y evidencia.</td></tr><tr><td>OKR y portafolio de proyectos</td><td>Ejecución adaptativa</td><td>Los objetivos deben tener resultados clave y proyectos priorizados con ciclos cortos de revisión.</td><td>Usar OKR para proyectos transformadores y BSC para seguimiento institucional.</td></tr><tr><td>Teoría del cambio</td><td>Impacto y causalidad</td><td>Toda apuesta estratégica debe explicar cómo las acciones generan resultados e impacto.</td><td>Evitar proyectos sueltos; construir cadenas de cambio para cada foco estratégico.</td></tr><tr><td>Vélez, Aragón y Rodríguez; estudios de calidad y prospectiva</td><td>Calidad, procedimientos e indicadores</td><td>La planeación se fortalece cuando integra filosofía institucional, procedimientos, indicadores y administración.</td><td>Alinear identidad UEB, procesos, metas, indicadores y mejora continua.</td></tr><tr><td>Cai y Ahmad / Sustainable Entrepreneurial University</td><td>Universidad sostenible emprendedora</td><td>La universidad contemporánea combina sostenibilidad, emprendimiento, innovación y relación con actores externos.</td><td>Diseñar un PDI con impacto social, ambiental y productivo, no solo académico.</td></tr><tr><td>Ehlers y Eigbrecht / Future Skills</td><td>Universidad del futuro</td><td>La educación superior debe desarrollar agencia, habilidades futuras, aprendizaje flexible y capacidades humanas frente a IA.</td><td>Replantear currículo, pedagogía, evaluación y educación para toda la vida.</td></tr><tr><td>UNESCO / futuros de la educación superior</td><td>Contrato social educativo</td><td>La educación debe orientarse a futuros justos, sostenibles y colaborativos.</td><td>Incorporar sostenibilidad, inclusión, aprendizaje permanente y responsabilidad social como núcleo del PDI.</td></tr><tr><td>OECD / Skills Outlook y Education Policy Outlook</td><td>Habilidades, política y empleabilidad</td><td>Los sistemas educativos deben responder a transiciones tecnológicas, laborales, demográficas y sociales.</td><td>Conectar programas, empleabilidad, reskilling, datos y pertinencia laboral.</td></tr><tr><td>PNUD / Señales de cambio</td><td>Futuros e incertidumbre</td><td>Tecnología responsable, justicia intergeneracional y comunidades resilientes son señales críticas.</td><td>Diseñar escenarios y alertas tempranas para el PDI.</td></tr><tr><td>EDUCAUSE, Hanover, Deloitte, Future of Work 2030</td><td>Tendencias sectoriales</td><td>IA, digitalización, experiencia estudiantil, competencia y trabajo cambiante reconfiguran la universidad.</td><td>Priorizar transformación digital, IA responsable, experiencia del estudiante y sostenibilidad financiera.</td></tr></tbody>
   </table>
 </div>
+
+  <div class="global-panel">
+    <h3>Fuentes revisadas para el benchmark metodológico</h3>
+    <p>Estas fuentes alimentan el punto 5 del informe y se consolidan aquí para que la bibliografía quede agrupada al final del documento.</p>
+    <div class="pdi-table-wrap">
+      <table class="pdi-table">
+        <thead><tr><th>Fuente</th><th>Aporte principal al informe</th></tr></thead>
+        <tbody>
+          <tr><td>Al-Qaimari, G. y Khan, M. A. (2025/2026). <em>Strategic Planning for Higher Education Institutions: Modern Challenges and Global Perspectives</em>. Palgrave Macmillan.</td><td>Agenda contemporánea de retos críticos para educación superior.</td></tr>
+          <tr><td>Dolence, M. G., Rowley, D. J. y Lujan, H. D. (1997). <em>Working Toward Strategic Change: A Step-by-Step Guide to the Planning Process</em>. Jossey-Bass.</td><td>Caja de herramientas operativas, KPIs, análisis de impacto y seguimiento.</td></tr>
+          <tr><td>Ehlers, U.-D. y Eigbrecht, L. (Eds.). (2024). <em>Creating the University of the Future: A Global View on Future Skills and Future Higher Education</em>. Springer.</td><td>Transformación académica, future skills, currículo flexible y aprendizaje permanente.</td></tr>
+          <tr><td>Hamdan, A. (Ed.). (2025). <em>Integrating Artificial Intelligence, Security for Environmental and Business Sustainability</em>. Springer.</td><td>Capa analítica, IA, sostenibilidad, tableros y gestión basada en datos.</td></tr>
+          <tr><td>Rowley, D. J., Lujan, H. D. y Dolence, M. G. (1997). <em>Strategic Change in Colleges and Universities: Planning to Survive and Prosper</em>. Jossey-Bass.</td><td>Motor de planeación estratégica, implementación, evaluación y gestión del cambio.</td></tr>
+          <tr><td>Sanaghan, P. (2009). <em>Collaborative Strategic Planning in Higher Education</em>. NACUBO.</td><td>Planeación colaborativa, apropiación institucional y participación significativa.</td></tr>
+          <tr><td>Zaidan, E., Tok, E., Al-Fadala, A. y Cochrane, L. (Eds.). (2025). <em>The Future of Education Policy in the State of Qatar</em>. Springer.</td><td>Pensamiento de futuros, escenarios, horizon scanning y backcasting.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   </div>
 
 </div>
@@ -1552,6 +2038,26 @@
     container.querySelectorAll('.benchmark-view').forEach(view => view.classList.remove('active'));
     container.querySelectorAll('.benchmark-tab').forEach(btn => btn.classList.remove('active'));
     const selected = container.querySelector('#benchmark-' + tab);
+    if (selected) selected.classList.add('active');
+    if (trigger) trigger.classList.add('active');
+  }
+
+  function showMethodTab(tab, trigger) {
+    const container = trigger ? trigger.closest('#panel-pdi-metodologias') : document.getElementById('panel-pdi-metodologias');
+    if (!container) return;
+    container.querySelectorAll('.method-view').forEach(view => view.classList.remove('active'));
+    container.querySelectorAll('.method-tab').forEach(btn => btn.classList.remove('active'));
+    const selected = container.querySelector('#method-' + tab);
+    if (selected) selected.classList.add('active');
+    if (trigger) trigger.classList.add('active');
+  }
+
+  function showMethodBookTab(tab, trigger) {
+    const container = trigger ? trigger.closest('#method-metodos') : document.getElementById('method-metodos');
+    if (!container) return;
+    container.querySelectorAll('.method-book-view').forEach(view => view.classList.remove('active'));
+    container.querySelectorAll('.method-book-tab').forEach(btn => btn.classList.remove('active'));
+    const selected = container.querySelector('#method-book-' + tab);
     if (selected) selected.classList.add('active');
     if (trigger) trigger.classList.add('active');
   }
