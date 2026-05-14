@@ -1021,9 +1021,9 @@
       <button class="uni-btn" data-main-nav="pdi-analisis-entorno" onclick="showAnalysisFromSidebar('tendencias', this)">3. Análisis del entorno</button>
       <div class="sidebar-subitems" aria-label="Subsecciones del análisis del entorno">
         <button class="uni-btn sidebar-subitem" type="button" onclick="showAnalysisFromSidebar('tendencias', this)">3.1 Tendencias y drivers</button>
-        <button class="uni-btn sidebar-subitem" type="button" onclick="showAnalysisFromSidebar('benchmark', this)">3.2 Benchmark de PDIs</button>
       </div>
-      <button class="uni-btn" onclick="showUni('pdi-bibliografia', this)">4. Bibliografía y fundamentos</button>
+      <button class="uni-btn" onclick="showUni('pdi-analisis-competencia', this)">4. Análisis de competencia</button>
+      <button class="uni-btn" onclick="showUni('pdi-bibliografia', this)">5. Bibliografía y fundamentos</button>
     </details>
 
 
@@ -1258,14 +1258,13 @@
     <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3</div>
     <div class="uni-title">
       <h2>3. Análisis del entorno</h2>
-      <p>Tendencias, drivers de cambio y benchmark de PDIs para orientar el nuevo PDI</p>
+      <p>Tendencias y drivers de cambio para orientar el nuevo PDI</p>
       <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">Lectura estratégica y prospectiva</span></div>
     </div>
   </div>
 
   <div class="analysis-tabs" role="tablist" aria-label="Subsecciones del análisis del entorno">
     <button class="analysis-tab active" type="button" onclick="showAnalysisTab('tendencias', this)">3.1 Tendencias y drivers</button>
-    <button class="analysis-tab" type="button" onclick="showAnalysisTab('benchmark', this)">3.2 Benchmark de PDIs</button>
   </div>
 
   <div class="analysis-view active" id="analysis-tendencias">
@@ -1286,18 +1285,22 @@
 
   </div>
 
-  <div class="analysis-view" id="analysis-benchmark">
+  
+
+</div>
+
+<div class="uni-panel" id="panel-pdi-analisis-competencia">
     <div id="panel-pdi-benchmark" class="analysis-benchmark-container">
 
 <div class="uni-header">
-<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3.2</div>
+<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4</div>
 <div class="uni-title">
-<h2>3.2 Benchmark de PDIs</h2>
+<h2>4. Análisis de competencia</h2>
 <p>Lectura comparativa de planes de desarrollo institucional nacionales, latinoamericanos e internacionales</p>
 <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">PDI UEB</span></div>
 </div>
 </div>
-<div aria-label="Secciones del benchmark de PDIs" class="benchmark-tabs" role="tablist">
+<div aria-label="Secciones del análisis de competencia" class="benchmark-tabs" role="tablist">
 <button class="benchmark-tab active" onclick="showBenchmarkTab('resumen', this)" type="button">Resumen</button>
 <button class="benchmark-tab" onclick="showBenchmarkTab('nacional', this)" type="button">Nacional</button>
 <button class="benchmark-tab" onclick="showBenchmarkTab('latam', this)" type="button">Latam</button>
@@ -1305,7 +1308,7 @@
 </div>
 <div class="benchmark-view active" id="benchmark-resumen">
 <div class="global-panel">
-<h3>3.2.1 Resumen del benchmark de PDIs</h3>
+<h3>4.1 Resumen del análisis de competencia</h3>
 <p>Este apartado reúne la lectura comparativa de planes de desarrollo institucional para identificar aprendizajes útiles en la formulación del nuevo PDI de la Universidad El Bosque. No busca copiar modelos ni clasificar universidades, sino reconocer patrones, decisiones estratégicas, formas de organización, apuestas diferenciales y riesgos de implementación que puedan orientar una planeación más clara, pertinente y ejecutable.</p>
 </div>
 <div class="pdi-table-wrap">
@@ -1424,9 +1427,9 @@
 </div>
 <div class="benchmark-view" id="benchmark-nacional">
 <div class="uni-header">
-<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3.2.2</div>
+<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.2</div>
 <div class="uni-title">
-<h2>3.2.2 Benchmark nacional</h2>
+<h2>4.2 Benchmark nacional</h2>
 <p>Lectura comparativa de referentes nacionales para orientar el nuevo PDI</p>
 <div class="badges">
 <span class="badge" style="background:rgba(0,95,107,0.12);color:#005F6B">Lectura nacional</span>
@@ -1436,7 +1439,7 @@
 </div>
 </div>
 <div class="global-panel bn-merged-hero">
-<div class="bn-eyebrow">3.2.2 · Benchmark nacional</div>
+<div class="bn-eyebrow">4.2 · Benchmark nacional</div>
 <h3>Benchmark nacional para tomar decisiones del nuevo PDI</h3>
 <p>Esta pestaña reúne en una sola lectura las cuatro subpestañas de la lectura nacional. La estructura conserva la lógica directiva del análisis: primero delimita el alcance, luego responde qué están planeando las universidades colombianas, cómo lo están haciendo y con qué horizonte temporal.</p>
 <div class="bn-anchor-grid">
@@ -1645,9 +1648,9 @@
 </div>
 <div class="benchmark-view" id="benchmark-latam">
 <div class="uni-header">
-<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3.2.3</div>
+<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.3</div>
 <div class="uni-title">
-<h2>3.2.3 Benchmark LATAM</h2>
+<h2>4.3 Benchmark LATAM</h2>
 <p>Lectura comparativa de referentes latinoamericanos para orientar el nuevo PDI</p>
 <div class="badges">
 <span class="badge" style="background:rgba(0,95,107,0.10);color:var(--accent)">Lectura LATAM</span>
@@ -1657,7 +1660,7 @@
 </div>
 </div>
 <div class="global-panel bn-merged-hero">
-<div class="bn-eyebrow">3.2.3 · Benchmark LATAM</div>
+<div class="bn-eyebrow">4.3 · Benchmark LATAM</div>
 <h3>Benchmark latinoamericano para calibrar la ambición del nuevo PDI</h3>
 <p>Esta pestaña integra el análisis directo de 23 documentos latinoamericanos, organizado con la misma lógica del benchmark nacional: alcance del corpus, lectura de apuestas estratégicas, metodologías de planeación, horizonte temporal y síntesis de implicaciones para la Universidad El Bosque.</p>
 <div class="bn-anchor-grid">
@@ -1796,15 +1799,15 @@
 </div>
 <div class="benchmark-view" id="benchmark-internacional">
 <div class="uni-header">
-<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">3.2.4</div>
+<div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4.4</div>
 <div class="uni-title">
-<h2>3.2.4 Benchmark internacional</h2>
+<h2>4.4 Benchmark internacional</h2>
 <p>Análisis comparado de referentes internacionales para la construcción del nuevo PDI · Universidad El Bosque</p>
 <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">Abril de 2026</span></div>
 </div>
 </div>
 <div class="global-panel bn-merged-hero">
-<div class="bn-eyebrow">3.2.4 · Benchmark internacional</div>
+<div class="bn-eyebrow">4.4 · Benchmark internacional</div>
 <h3>Lectura internacional para calibrar ambición, foco y capacidad de ejecución</h3>
 <p>Este apartado integra la revisión directa de los archivos internacionales disponibles para distinguir planes institucionales genuinos, documentos temáticos, sub-planes y archivos no comparables. La utilidad para la UEB no está en copiar a universidades globales, sino en reconocer cómo las instituciones más sólidas conectan identidad, prioridades, recursos, seguimiento y reputación.</p>
 <div class="bn-anchor-grid">
@@ -2000,14 +2003,12 @@
     </div>
   </div>
 
-</div>
-
 <div class="uni-panel" id="panel-pdi-bibliografia">
 
   <div class="uni-header">
-    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">4</div>
+    <div class="uni-icon" style="background: linear-gradient(135deg,#005F6B,#2563eb)">5</div>
     <div class="uni-title">
-      <h2>4. Bibliografía y fundamentos</h2>
+      <h2>5. Bibliografía y fundamentos</h2>
       <p>Modelo estratégico para la construcción del nuevo PDI · Universidad El Bosque</p>
       <div class="badges"><span class="badge" style="background:rgba(37,99,235,0.12);color:var(--edu)">Insumo para planeación institucional</span><span class="badge" style="background:rgba(217,119,6,0.12);color:var(--accent)">27 de abril de 2026</span></div>
     </div>
@@ -2015,7 +2016,7 @@
 
 
   <div class="global-panel">
-    <h3>4. Bibliografía y fundamentos</h3>
+    <h3>5. Bibliografía y fundamentos</h3>
     <p>La bibliografía compartida sugiere que el nuevo PDI debe integrar cinco lógicas que a veces se trabajan por separado: planeación estratégica, prospectiva, gestión por indicadores, cambio organizacional e innovación educativa. La oportunidad está en articularlas en un solo proceso institucional.</p>
   </div>
 
@@ -2117,7 +2118,7 @@
   }
 
   function showBenchmarkFromSidebar(tab, trigger) {
-    showAnalysisFromSidebar('benchmark', trigger);
+    showUni('pdi-analisis-competencia', trigger);
 
     const container = document.getElementById('panel-pdi-benchmark');
     if (!container) return;
